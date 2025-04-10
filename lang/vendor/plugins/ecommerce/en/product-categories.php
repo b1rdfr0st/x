@@ -1,25 +1,25 @@
 <?php
 
 return [
-    'name' => 'Product categories',
-    'product_categories' => 'Product categories',
-    'create' => 'Create new product category',
-    'edit' => 'Edit product category',
-    'list' => 'List product categories',
-    'none' => 'None',
-    'menu' => 'Product categories',
+    'name' => 'Ürün Kategorileri',
+    'product_categories' => 'Ürün Kategorileri',
+    'create' => 'Yeni ürün kategorisi oluştur',
+    'edit' => 'Ürün kategorisini düzenle',
+    'list' => 'Ürün kategorilerini listele',
+    'none' => 'Hiçbiri',
+    'menu' => 'Ürün Kategorileri',
     'intro' => [
-        'title' => 'Manage product categories',
-        'description' => 'Such as clothes, shoes, bags, jewelry ...',
-        'button_text' => 'Create product category',
+        'title' => 'Ürün kategorilerini yönet',
+        'description' => 'Örneğin: kıyafetler, ayakkabılar, çantalar, takılar...',
+        'button_text' => 'Ürün kategorisi oluştur',
     ],
-    'total_products' => 'Total products: :total',
-    'edit_this_category' => 'Edit this category',
+    'total_products' => 'Toplam ürün: :total',
+    'edit_this_category' => 'Bu kategoriyi düzenle',
     'export' => [
-        'description' => 'Export product categories to Excel/CSV file.',
-        'total' => 'Total',
+        'description' => 'Ürün kategorilerini Excel/CSV dosyasına aktar.',
+        'total' => 'Toplam',
     ],
     'import' => [
-        'description' => 'Import product categories from Excel/CSV file.',
+        'description' => 'Ürün kategorilerini Excel/CSV dosyasından içe aktar.',
     ],
 ];
