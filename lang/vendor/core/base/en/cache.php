@@ -1,34 +1,34 @@
 <?php
 
 return [
-    'cache_management' => 'Cache Management',
-    'cache_management_description' => 'Clear cache to make your site up to date.',
-    'cache_commands' => 'Clear cache commands',
+    'cache_management' => 'Önbellek Yönetimi',
+    'cache_management_description' => 'Sitenizi güncel tutmak için önbelleği temizleyin.',
+    'cache_commands' => 'Önbellek temizleme komutları',
     'commands' => [
         'clear_cms_cache' => [
-            'title' => 'Clear all CMS cache',
-            'description' => 'Clear CMS caching: database caching, static blocks... Run this command when you don\'t see the changes after updating data.',
-            'success_msg' => 'Cache cleaned',
+            'title' => 'Tüm CMS önbelleğini temizle',
+            'description' => 'CMS önbelleğini temizle: veritabanı önbelleği, statik bloklar... Verileri güncelledikten sonra değişiklikleri görmüyorsanız bu komutu çalıştırın.',
+            'success_msg' => 'Önbellek temizlendi',
         ],
         'refresh_compiled_views' => [
-            'title' => 'Refresh compiled views',
-            'description' => 'Clear compiled views to make views up to date.',
-            'success_msg' => 'Cache view refreshed',
+            'title' => 'Derlenmiş görünümleri yenile',
+            'description' => 'Görünümleri güncel tutmak için derlenmiş görünümleri temizleyin.',
+            'success_msg' => 'Önbellek görünümü yenilendi',
         ],
         'clear_config_cache' => [
-            'title' => 'Clear config cache',
-            'description' => 'You might need to refresh the config caching when you change something on production environment.',
-            'success_msg' => 'Config cache cleaned',
+            'title' => 'Yapılandırma önbelleğini temizle',
+            'description' => 'Üretim ortamında bir şey değiştirdiğinizde yapılandırma önbelleğini yenilemeniz gerekebilir.',
+            'success_msg' => 'Yapılandırma önbelleği temizlendi',
         ],
         'clear_route_cache' => [
-            'title' => 'Clear route cache',
-            'description' => 'Clear cache routing.',
-            'success_msg' => 'The route cache has been cleaned',
+            'title' => 'Rota önbelleğini temizle',
+            'description' => 'Rota önbelleğini temizleyin.',
+            'success_msg' => 'Rota önbelleği temizlendi',
         ],
         'clear_log' => [
-            'title' => 'Clear log',
-            'description' => 'Clear system log files',
-            'success_msg' => 'The system log has been cleaned',
+            'title' => 'Logları temizle',
+            'description' => 'Sistem log dosyalarını temizleyin',
+            'success_msg' => 'Sistem logları temizlendi',
         ],
     ],
 ];

@@ -1,13 +1,13 @@
 <?php
 
 return [
-    'drag_drop_info' => 'Drag and drop on the left to change the order or parent of the categories.',
-    'expand_all' => 'Expand all',
-    'collapse_all' => 'Collapse all',
-    'empty_text' => 'No categories found.',
-    'delete_button' => 'Delete',
+    'drag_drop_info' => 'Kategorilerin sırasını veya üst kategorisini değiştirmek için soldaki öğeleri sürükleyip bırakın.',
+    'expand_all' => 'Tümünü Genişlet',
+    'collapse_all' => 'Tümünü Daralt',
+    'empty_text' => 'Kategori bulunamadı.',
+    'delete_button' => 'Sil',
     'delete_modal' => [
-        'title' => 'Delete Category',
-        'message' => 'Are you sure you want to delete this category?',
+        'title' => 'Kategoriyi Sil',
+        'message' => 'Bu kategoriyi silmek istediğinizden emin misiniz?',
     ],
 ];
