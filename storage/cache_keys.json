@@ -1,0 +1,28 @@
+{
+    "Botble\\ACL\\Models\\UserMeta": [
+        "65b83ad065dbeb5292d94ab9580d9273@user-meta-1"
+    ],
+    "Botble\\Base\\Models\\AdminNotification": [
+        "91ca94b722506f03892a158294e61ceb@admin-notifications-count"
+    ],
+    "Botble\\Contact\\Models\\Contact": [
+        "0c175e4a57799ccc0d2967044852a2f8@unread-contacts",
+        "0c175e4a57799ccc0d2967044852a2f8@unread-contacts-count"
+    ],
+    "Botble\\Ecommerce\\Models\\ProductCategory": [
+        "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_widgets_a2ba137f333aba68ce34a5000ef38853",
+        "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_widgets_90607551e146c693084ceb2c705cb4ae",
+        "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_widgets_db8109e1338a08170e64864669a74058",
+        "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_widgets_7bdb8246314cf37b42be6b38c80da999",
+        "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_rendering_selectc14e287187eef4501058d51ec1169a8d",
+        "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_widgets_c14e287187eef4501058d51ec1169a8d",
+        "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_widgets_89c8f94cb7705b21e9caa28f2ffbdcea",
+        "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_widgets_a8219636026c69dc52c5292359a83f18",
+        "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_widgets_ece4c0d5fc373443a9a4be08e556819a",
+        "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_widgets_1b9cb915ebe3493bd6b577f7c7e7e052",
+        "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_widgets_6d92d7a7fa41fc2198a0ed478443d18f",
+        "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_widgets_277248365f57822f7b931a9fe4c514fc",
+        "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_widgets_c5f6c5ae42c2e8a1adfc9028321b17a2",
+        "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_widgets_2c9b823c95be8c0f6bae6648019fc38b"
+    ]
+}
