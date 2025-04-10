@@ -55,3 +55,4 @@
 # .phpactor.json
 
 # storage/framework/maintenance.php
+storage/cache_keys.json
