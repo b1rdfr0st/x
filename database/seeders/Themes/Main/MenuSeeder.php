@@ -23,115 +23,115 @@ class MenuSeeder extends ThemeSeeder
     {
         return [
             [
-                'name' => 'Main menu',
+                'name' => 'Ana Menü',
                 'slug' => 'main-menu',
                 'location' => 'main-menu',
                 'items' => [
                     [
-                        'title' => 'Home',
+                        'title' => 'Anasayfa',
                         'reference_id' => 1,
                         'reference_type' => Page::class,
                         'children' => [
                             [
-                                'title' => 'Electronics',
+                                'title' => 'Elektronik',
                                 'url' => 'https://shofy.botble.com',
                             ],
                             [
-                                'title' => 'Fashion',
+                                'title' => 'Moda',
                                 'url' => 'https://shofy-fashion.botble.com',
                             ],
                             [
-                                'title' => 'Beauty',
+                                'title' => 'Güzellik',
                                 'url' => 'https://shofy-beauty.botble.com',
                             ],
                             [
-                                'title' => 'Jewelry',
+                                'title' => 'Takı',
                                 'url' => 'https://shofy-jewelry.botble.com',
                             ],
                             [
-                                'title' => 'Grocery',
+                                'title' => 'Market',
                                 'url' => 'https://shofy-grocery.botble.com',
                             ],
                         ],
                     ],
                     [
-                        'title' => 'Shop',
+                        'title' => 'Mağaza',
                         'children' => [
                             [
-                                'title' => 'Shop Categories',
+                                'title' => 'Kategoriler',
                                 'reference_id' => $this->getPageId('Categories'),
                                 'reference_type' => Page::class,
                             ],
                             [
-                                'title' => 'Shop Brands',
+                                'title' => 'Markalar',
                                 'reference_id' => $this->getPageId('Brands'),
                                 'reference_type' => Page::class,
                             ],
                             [
-                                'title' => 'Shop List',
+                                'title' => 'Liste Görünümü',
                                 'url' => '/products?layout=list',
                             ],
                             [
-                                'title' => 'Shop Grid',
+                                'title' => 'Izgara Görünümü',
                                 'url' => '/products?layout=grid',
                             ],
                             [
-                                'title' => 'Product Detail',
+                                'title' => 'Ürün Detayı',
                                 'url' => Product::query()->wherePublished()->where('is_variation', false)->inRandomOrder()->first()->url,
                             ],
                             [
-                                'title' => 'Grab Coupons',
+                                'title' => 'Kuponlar',
                                 'reference_id' => $this->getPageId('Coupons'),
                                 'reference_type' => Page::class,
                             ],
                             [
-                                'title' => 'Cart',
+                                'title' => 'Sepet',
                                 'url' => '/cart',
                             ],
                             [
-                                'title' => 'Compare',
+                                'title' => 'Karşılaştır',
                                 'url' => '/compare',
                             ],
                             [
-                                'title' => 'Wishlist',
+                                'title' => 'Favoriler',
                                 'url' => '/wishlist',
                             ],
                             [
-                                'title' => 'Track Your Order',
+                                'title' => 'Sipariş Takibi',
                                 'url' => '/orders/tracking',
                             ],
                         ],
                     ],
                     [
-                        'title' => 'Vendors',
+                        'title' => 'Satıcılar',
                         'url' => '/stores',
                     ],
                     [
-                        'title' => 'Pages',
+                        'title' => 'Sayfalar',
                         'children' => [
                             [
-                                'title' => 'FAQs',
+                                'title' => 'SSS',
                                 'reference_id' => $this->getPageId('FAQs'),
                                 'reference_type' => Page::class,
                             ],
                             [
-                                'title' => 'Login',
+                                'title' => 'Giriş Yap',
                                 'url' => '/login',
                             ],
                             [
-                                'title' => 'Register',
+                                'title' => 'Kayıt Ol',
                                 'url' => '/register',
                             ],
                             [
-                                'title' => 'Forgot Password',
+                                'title' => 'Şifre Sıfırla',
                                 'url' => '/password/reset',
                             ],
                             [
-                                'title' => '404 Error',
+                                'title' => '404 Hatası',
                                 'url' => '/404',
                             ],
                             [
-                                'title' => 'Coming Soon',
+                                'title' => 'Yakında',
                                 'url' => '/coming-soon',
                             ],
                         ],
@@ -142,82 +142,82 @@ class MenuSeeder extends ThemeSeeder
                         'reference_type' => Page::class,
                         'children' => [
                             [
-                                'title' => 'Blog Grid',
+                                'title' => 'Blog Izgara',
                                 'url' => '/blog?layout=grid',
                             ],
                             [
-                                'title' => 'Blog List',
+                                'title' => 'Blog Liste',
                                 'url' => '/blog?layout=list',
                             ],
                             [
-                                'title' => 'Blog Detail',
+                                'title' => 'Blog Detayı',
                                 'url' => Post::query()->wherePublished()->inRandomOrder()->first()->url,
                             ],
                         ],
                     ],
                     [
-                        'title' => 'Contact',
+                        'title' => 'İletişim',
                         'reference_id' => $this->getPageId('Contact'),
                         'reference_type' => Page::class,
                     ],
                 ],
             ],
             [
-                'name' => 'My Account',
+                'name' => 'Hesabım',
                 'slug' => 'my-account',
                 'items' => [
                     [
-                        'title' => 'Track Orders',
+                        'title' => 'Sipariş Takibi',
                         'url' => '/orders/tracking',
                     ],
                     [
-                        'title' => 'Shipping',
+                        'title' => 'Kargo',
                         'reference_id' => $this->getPageId('Shipping'),
                         'reference_type' => Page::class,
                     ],
                     [
-                        'title' => 'Wishlist',
+                        'title' => 'Favoriler',
                         'url' => '/wishlist',
                     ],
                     [
-                        'title' => 'My Account',
+                        'title' => 'Hesabım',
                         'url' => '/customer/overview',
                     ],
                     [
-                        'title' => 'Order History',
+                        'title' => 'Sipariş Geçmişi',
                         'url' => '/customer/orders',
                     ],
                     [
-                        'title' => 'Returns',
+                        'title' => 'İadeler',
                         'url' => '/customer/order-returns',
                     ],
                 ],
             ],
             [
-                'name' => 'Information',
+                'name' => 'Bilgi',
                 'slug' => 'information',
                 'items' => [
                     [
-                        'title' => 'Our Story',
+                        'title' => 'Hikayemiz',
                         'reference_id' => $this->getPageId('Our Story'),
                         'reference_type' => Page::class,
                     ],
                     [
-                        'title' => 'Careers',
+                        'title' => 'Kariyer',
                         'reference_id' => $this->getPageId('Careers'),
                         'reference_type' => Page::class,
                     ],
                     [
-                        'title' => 'Privacy Policy',
+                        'title' => 'Gizlilik Politikası',
                         'reference_id' => $this->getPageId('Cookie Policy'),
                         'reference_type' => Page::class,
                     ],
                     [
-                        'title' => 'Latest News',
+                        'title' => 'Son Haberler',
                         'url' => '/blog',
                     ],
                     [
-                        'title' => 'Contact Us',
+                        'title' => 'Bize Ulaşın',
                         'reference_id' => $this->getPageId('Contact'),
                         'reference_type' => Page::class,
                     ],
