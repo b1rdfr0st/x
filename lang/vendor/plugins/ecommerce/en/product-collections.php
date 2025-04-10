@@ -1,13 +1,13 @@
 <?php
 
 return [
-    'name' => 'Product collections',
-    'create' => 'New product collection',
-    'edit' => 'Edit product collection',
-    'slug_help_block' => 'Label key: <code>:slug</code>. We will use this key for filter.',
+    'name' => 'Ürün Koleksiyonları',
+    'create' => 'Yeni ürün koleksiyonu',
+    'edit' => 'Ürün koleksiyonunu düzenle',
+    'slug_help_block' => 'Etiket anahtarı: <code>:slug</code>. Filtreleme için bu anahtarı kullanacağız.',
     'intro' => [
-        'title' => 'Manage product collections',
-        'description' => 'Group your products into collections to make it easier for customers to find them by category.',
-        'button_text' => 'Create product collection',
+        'title' => 'Ürün koleksiyonlarını yönet',
+        'description' => 'Ürünlerinizi koleksiyonlara gruplayarak müşterilerin kategorilere göre daha kolay bulmasını sağlayın.',
+        'button_text' => 'Ürün koleksiyonu oluştur',
     ],
 ];
