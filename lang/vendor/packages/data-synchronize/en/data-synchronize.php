@@ -2,68 +2,68 @@
 
 return [
     'tools' => [
-        'export_import_data' => 'Export/Import Data',
+        'export_import_data' => 'Veri Dışa Aktar/İçe Aktar',
     ],
 
     'import' => [
-        'name' => 'Import',
-        'heading' => 'Import :label',
-        'failed_to_read_file' => 'The file is invalid or corrupted or too large to read.',
+        'name' => 'İçe Aktar',
+        'heading' => ':label İçe Aktar',
+        'failed_to_read_file' => 'Dosya geçersiz, bozuk veya okunamayacak kadar büyük.',
 
         'form' => [
-            'quick_export_message' => 'If you want to export :label data, you can do it quickly by clicking on :export_csv_link or :export_excel_link.',
-            'quick_export_button' => 'Export to :format',
-            'dropzone_message' => 'Drag and drop file here or click to upload',
-            'allowed_extensions' => 'Choose a file with following extensions: :extensions.',
-            'import_button' => 'Import',
-            'chunk_size' => 'Chunk size',
-            'chunk_size_helper' => 'The number of rows to be imported at a time is defined by the chunk size. Increase this value if you have a large file and data is imported very fast. Decrease this value if you encounter memory limits or gateway timeout issues when importing data.',
+            'quick_export_message' => 'Eğer :label verilerini dışa aktarmak istiyorsanız, :export_csv_link veya :export_excel_link bağlantısına tıklayarak hızlıca yapabilirsiniz.',
+            'quick_export_button' => ':format olarak dışa aktar',
+            'dropzone_message' => 'Dosyayı buraya sürükleyip bırakın veya yüklemek için tıklayın',
+            'allowed_extensions' => 'Aşağıdaki uzantılara sahip bir dosya seçin: :extensions.',
+            'import_button' => 'İçe Aktar',
+            'chunk_size' => 'Parça boyutu',
+            'chunk_size_helper' => 'Bir seferde içe aktarılacak satır sayısı parça boyutuyla tanımlanır. Büyük bir dosyanız varsa ve veri hızlı bir şekilde içe aktarılıyorsa bu değeri artırın. Bellek sınırları veya zaman aşımı sorunlarıyla karşılaşırsanız bu değeri azaltın.',
         ],
 
         'failures' => [
-            'title' => 'Failures',
-            'attribute' => 'Attribute',
-            'errors' => 'Errors',
+            'title' => 'Hatalar',
+            'attribute' => 'Özellik',
+            'errors' => 'Hatalar',
         ],
 
         'example' => [
-            'title' => 'Example',
-            'download' => 'Download example :type file',
+            'title' => 'Örnek',
+            'download' => 'Örnek :type dosyasını indir',
         ],
 
         'rules' => [
-            'title' => 'Rules',
-            'column' => 'Column',
+            'title' => 'Kurallar',
+            'column' => 'Sütun',
         ],
 
-        'uploading_message' => 'Starting to upload file...',
-        'uploaded_message' => 'File :file has been uploaded successfully. Start validating data...',
-        'validating_message' => 'Validating from :from to :to...',
-        'importing_message' => 'Importing from :from to :to...',
-        'done_message' => 'Imported :count :label successfully.',
-        'validating_failed_message' => 'Validating failed. Please check the errors below.',
-        'no_data_message' => 'Your data is already up to date or no data to import.',
+        'uploading_message' => 'Dosya yüklenmeye başlıyor...',
+        'uploaded_message' => ':file dosyası başarıyla yüklendi. Veri doğrulamaya başlıyor...',
+        'validating_message' => ':from ile :to arasındaki veriler doğrulanıyor...',
+        'importing_message' => ':from ile :to arasındaki veriler içe aktarılıyor...',
+        'done_message' => ':count :label başarıyla içe aktarıldı.',
+        'validating_failed_message' => 'Doğrulama başarısız oldu. Lütfen aşağıdaki hataları kontrol edin.',
+        'no_data_message' => 'Verileriniz zaten güncel veya içe aktarılacak veri yok.',
     ],
 
     'export' => [
-        'name' => 'Export',
-        'heading' => 'Export :label',
+        'name' => 'Dışa Aktar',
+        'heading' => ':label Dışa Aktar',
 
         'form' => [
-            'all_columns_disabled' => 'Following columns will be exported: :columns.',
-            'columns' => 'Columns',
+            'all_columns_disabled' => 'Aşağıdaki sütunlar dışa aktarılacak: :columns.',
+            'columns' => 'Sütunlar',
             'format' => 'Format',
-            'export_button' => 'Export',
+            'export_button' => 'Dışa Aktar',
         ],
 
-        'success_message' => 'Exported successfully.',
-        'error_message' => 'Export failed.',
+        'success_message' => 'Başarıyla dışa aktarıldı.',
+        'error_message' => 'Dışa aktarma başarısız oldu.',
 
         'empty_state' => [
-            'title' => 'No data to export',
-            'description' => 'Looks like there is no data to export.',
-            'back' => 'Back to :page',
+            'title' => 'Dışa aktarılacak veri yok',
+            'description' => 'Görünüşe göre dışa aktarılacak veri yok.',
+            'back' => ':page sayfasına geri dön',
         ],
     ],
-    'check_all' => 'Check all',
+    'check_all' => 'Tümünü işaretle',
 ];
