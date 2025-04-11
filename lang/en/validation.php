@@ -4,147 +4,147 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Validation Language Lines
+    | Doğrulama Dil Satırları
     |--------------------------------------------------------------------------
     |
-    | The following language lines contain the default error messages used by
-    | the validator class. Some of these rules have multiple versions such
-    | as the size rules. Feel free to tweak each of these messages here.
+    | Aşağıdaki dil satırları, doğrulayıcı sınıfı tarafından kullanılan varsayılan
+    | hata mesajlarını içerir. Bu kuralların bazıları, boyut kuralları gibi birden
+    | fazla sürüme sahiptir. Her bir mesajı burada özgürce düzenleyebilirsiniz.
     |
     */
 
-    'accepted' => 'The :attribute must be accepted.',
-    'accepted_if' => 'The :attribute must be accepted when :other is :value.',
-    'active_url' => 'The :attribute is not a valid URL.',
-    'after' => 'The :attribute must be a date after :date.',
-    'after_or_equal' => 'The :attribute must be a date after or equal to :date.',
-    'alpha' => 'The :attribute must only contain letters.',
-    'alpha_dash' => 'The :attribute must only contain letters, numbers, dashes and underscores.',
-    'alpha_num' => 'The :attribute must only contain letters and numbers.',
-    'array' => 'The :attribute must be an array.',
-    'before' => 'The :attribute must be a date before :date.',
-    'before_or_equal' => 'The :attribute must be a date before or equal to :date.',
+    'accepted' => ':attribute kabul edilmelidir.',
+    'accepted_if' => ':attribute, :other :value olduğunda kabul edilmelidir.',
+    'active_url' => ':attribute geçerli bir URL değildir.',
+    'after' => ':attribute, :date tarihinden sonraki bir tarih olmalıdır.',
+    'after_or_equal' => ':attribute, :date tarihinden sonra veya eşit bir tarih olmalıdır.',
+    'alpha' => ':attribute yalnızca harflerden oluşmalıdır.',
+    'alpha_dash' => ':attribute yalnızca harfler, sayılar, tire ve alt çizgi içerebilir.',
+    'alpha_num' => ':attribute yalnızca harfler ve sayılardan oluşmalıdır.',
+    'array' => ':attribute bir dizi olmalıdır.',
+    'before' => ':attribute, :date tarihinden önceki bir tarih olmalıdır.',
+    'before_or_equal' => ':attribute, :date tarihinden önce veya eşit bir tarih olmalıdır.',
     'between' => [
-        'array' => 'The :attribute must have between :min and :max items.',
-        'file' => 'The :attribute must be between :min and :max kilobytes.',
-        'numeric' => 'The :attribute must be between :min and :max.',
-        'string' => 'The :attribute must be between :min and :max characters.',
+        'array' => ':attribute, :min ile :max arasında öğe içermelidir.',
+        'file' => ':attribute, :min ile :max kilobayt arasında olmalıdır.',
+        'numeric' => ':attribute, :min ile :max arasında olmalıdır.',
+        'string' => ':attribute, :min ile :max karakter arasında olmalıdır.',
     ],
-    'boolean' => 'The :attribute field must be true or false.',
-    'confirmed' => 'The :attribute confirmation does not match.',
-    'current_password' => 'The password is incorrect.',
-    'date' => 'The :attribute is not a valid date.',
-    'date_equals' => 'The :attribute must be a date equal to :date.',
-    'date_format' => 'The :attribute does not match the format :format.',
-    'declined' => 'The :attribute must be declined.',
-    'declined_if' => 'The :attribute must be declined when :other is :value.',
-    'different' => 'The :attribute and :other must be different.',
-    'digits' => 'The :attribute must be :digits digits.',
-    'digits_between' => 'The :attribute must be between :min and :max digits.',
-    'dimensions' => 'The :attribute has invalid image dimensions.',
-    'distinct' => 'The :attribute field has a duplicate value.',
-    'doesnt_start_with' => 'The :attribute may not start with one of the following: :values.',
-    'email' => 'The :attribute must be a valid email address.',
-    'ends_with' => 'The :attribute must end with one of the following: :values.',
-    'enum' => 'The selected :attribute is invalid.',
-    'exists' => 'The selected :attribute is invalid.',
-    'file' => 'The :attribute must be a file.',
-    'filled' => 'The :attribute field must have a value.',
+    'boolean' => ':attribute alanı doğru veya yanlış olmalıdır.',
+    'confirmed' => ':attribute doğrulaması eşleşmiyor.',
+    'current_password' => 'Şifre yanlış.',
+    'date' => ':attribute geçerli bir tarih değildir.',
+    'date_equals' => ':attribute, :date tarihine eşit bir tarih olmalıdır.',
+    'date_format' => ':attribute, :format formatıyla eşleşmiyor.',
+    'declined' => ':attribute reddedilmelidir.',
+    'declined_if' => ':attribute, :other :value olduğunda reddedilmelidir.',
+    'different' => ':attribute ve :other farklı olmalıdır.',
+    'digits' => ':attribute, :digits basamak olmalıdır.',
+    'digits_between' => ':attribute, :min ile :max basamak arasında olmalıdır.',
+    'dimensions' => ':attribute geçersiz resim boyutlarına sahiptir.',
+    'distinct' => ':attribute alanında yinelenen bir değer var.',
+    'doesnt_start_with' => ':attribute, şu değerlerden biriyle başlamamalıdır: :values.',
+    'email' => ':attribute geçerli bir e-posta adresi olmalıdır.',
+    'ends_with' => ':attribute, şu değerlerden biriyle bitmelidir: :values.',
+    'enum' => 'Seçilen :attribute geçersiz.',
+    'exists' => 'Seçilen :attribute geçersiz.',
+    'file' => ':attribute bir dosya olmalıdır.',
+    'filled' => ':attribute alanı bir değer içermelidir.',
     'gt' => [
-        'array' => 'The :attribute must have more than :value items.',
-        'file' => 'The :attribute must be greater than :value kilobytes.',
-        'numeric' => 'The :attribute must be greater than :value.',
-        'string' => 'The :attribute must be greater than :value characters.',
+        'array' => ':attribute, :value öğeden fazla olmalıdır.',
+        'file' => ':attribute, :value kilobayttan büyük olmalıdır.',
+        'numeric' => ':attribute, :value değerinden büyük olmalıdır.',
+        'string' => ':attribute, :value karakterden uzun olmalıdır.',
     ],
     'gte' => [
-        'array' => 'The :attribute must have :value items or more.',
-        'file' => 'The :attribute must be greater than or equal to :value kilobytes.',
-        'numeric' => 'The :attribute must be greater than or equal to :value.',
-        'string' => 'The :attribute must be greater than or equal to :value characters.',
+        'array' => ':attribute, :value öğe veya daha fazlasını içermelidir.',
+        'file' => ':attribute, :value kilobayttan büyük veya eşit olmalıdır.',
+        'numeric' => ':attribute, :value değerinden büyük veya eşit olmalıdır.',
+        'string' => ':attribute, :value karakterden büyük veya eşit olmalıdır.',
     ],
-    'image' => 'The :attribute must be an image.',
-    'in' => 'The selected :attribute is invalid.',
-    'in_array' => 'The :attribute field does not exist in :other.',
-    'integer' => 'The :attribute must be an integer.',
-    'ip' => 'The :attribute must be a valid IP address.',
-    'ipv4' => 'The :attribute must be a valid IPv4 address.',
-    'ipv6' => 'The :attribute must be a valid IPv6 address.',
-    'json' => 'The :attribute must be a valid JSON string.',
+    'image' => ':attribute bir resim olmalıdır.',
+    'in' => 'Seçilen :attribute geçersiz.',
+    'in_array' => ':attribute alanı :other içinde mevcut değil.',
+    'integer' => ':attribute bir tam sayı olmalıdır.',
+    'ip' => ':attribute geçerli bir IP adresi olmalıdır.',
+    'ipv4' => ':attribute geçerli bir IPv4 adresi olmalıdır.',
+    'ipv6' => ':attribute geçerli bir IPv6 adresi olmalıdır.',
+    'json' => ':attribute geçerli bir JSON dizesi olmalıdır.',
     'lt' => [
-        'array' => 'The :attribute must have less than :value items.',
-        'file' => 'The :attribute must be less than :value kilobytes.',
-        'numeric' => 'The :attribute must be less than :value.',
-        'string' => 'The :attribute must be less than :value characters.',
+        'array' => ':attribute, :value öğeden az olmalıdır.',
+        'file' => ':attribute, :value kilobayttan küçük olmalıdır.',
+        'numeric' => ':attribute, :value değerinden küçük olmalıdır.',
+        'string' => ':attribute, :value karakterden kısa olmalıdır.',
     ],
     'lte' => [
-        'array' => 'The :attribute must not have more than :value items.',
-        'file' => 'The :attribute must be less than or equal to :value kilobytes.',
-        'numeric' => 'The :attribute must be less than or equal to :value.',
-        'string' => 'The :attribute must be less than or equal to :value characters.',
+        'array' => ':attribute, :value öğeden fazla olmamalıdır.',
+        'file' => ':attribute, :value kilobayttan küçük veya eşit olmalıdır.',
+        'numeric' => ':attribute, :value değerinden küçük veya eşit olmalıdır.',
+        'string' => ':attribute, :value karakterden kısa veya eşit olmalıdır.',
     ],
-    'mac_address' => 'The :attribute must be a valid MAC address.',
+    'mac_address' => ':attribute geçerli bir MAC adresi olmalıdır.',
     'max' => [
-        'array' => 'The :attribute must not have more than :max items.',
-        'file' => 'The :attribute must not be greater than :max kilobytes.',
-        'numeric' => 'The :attribute must not be greater than :max.',
-        'string' => 'The :attribute must not be greater than :max characters.',
+        'array' => ':attribute, :max öğeden fazla olmamalıdır.',
+        'file' => ':attribute, :max kilobayttan büyük olmamalıdır.',
+        'numeric' => ':attribute, :max değerinden büyük olmamalıdır.',
+        'string' => ':attribute, :max karakterden uzun olmamalıdır.',
     ],
-    'mimes' => 'The :attribute must be a file of type: :values.',
-    'mimetypes' => 'The :attribute must be a file of type: :values.',
+    'mimes' => ':attribute şu türde bir dosya olmalıdır: :values.',
+    'mimetypes' => ':attribute şu türde bir dosya olmalıdır: :values.',
     'min' => [
-        'array' => 'The :attribute must have at least :min items.',
-        'file' => 'The :attribute must be at least :min kilobytes.',
-        'numeric' => 'The :attribute must be at least :min.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'array' => ':attribute, en az :min öğe içermelidir.',
+        'file' => ':attribute, en az :min kilobayt olmalıdır.',
+        'numeric' => ':attribute, en az :min olmalıdır.',
+        'string' => ':attribute, en az :min karakter olmalıdır.',
     ],
-    'multiple_of' => 'The :attribute must be a multiple of :value.',
-    'not_in' => 'The selected :attribute is invalid.',
-    'not_regex' => 'The :attribute format is invalid.',
-    'numeric' => 'The :attribute must be a number.',
+    'multiple_of' => ':attribute, :value değerinin katı olmalıdır.',
+    'not_in' => 'Seçilen :attribute geçersiz.',
+    'not_regex' => ':attribute formatı geçersiz.',
+    'numeric' => ':attribute bir sayı olmalıdır.',
     'password' => [
-        'letters' => 'The :attribute must contain at least one letter.',
-        'mixed' => 'The :attribute must contain at least one uppercase and one lowercase letter.',
-        'numbers' => 'The :attribute must contain at least one number.',
-        'symbols' => 'The :attribute must contain at least one symbol.',
-        'uncompromised' => 'The given :attribute has appeared in a data leak. Please choose a different :attribute.',
+        'letters' => ':attribute en az bir harf içermelidir.',
+        'mixed' => ':attribute en az bir büyük harf ve bir küçük harf içermelidir.',
+        'numbers' => ':attribute en az bir rakam içermelidir.',
+        'symbols' => ':attribute en az bir sembol içermelidir.',
+        'uncompromised' => 'Verilen :attribute bir veri sızıntısında bulunmuş. Lütfen farklı bir :attribute seçin.',
     ],
-    'present' => 'The :attribute field must be present.',
-    'prohibited' => 'The :attribute field is prohibited.',
-    'prohibited_if' => 'The :attribute field is prohibited when :other is :value.',
-    'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',
-    'prohibits' => 'The :attribute field prohibits :other from being present.',
-    'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
-    'required_array_keys' => 'The :attribute field must contain entries for: :values.',
-    'required_if' => 'The :attribute field is required when :other is :value.',
-    'required_unless' => 'The :attribute field is required unless :other is in :values.',
-    'required_with' => 'The :attribute field is required when :values is present.',
-    'required_with_all' => 'The :attribute field is required when :values are present.',
-    'required_without' => 'The :attribute field is required when :values is not present.',
-    'required_without_all' => 'The :attribute field is required when none of :values are present.',
-    'same' => 'The :attribute and :other must match.',
+    'present' => ':attribute alanı mevcut olmalıdır.',
+    'prohibited' => ':attribute alanı yasaktır.',
+    'prohibited_if' => ':attribute alanı, :other :value olduğunda yasaktır.',
+    'prohibited_unless' => ':attribute alanı, :other :values içinde olmadıkça yasaktır.',
+    'prohibits' => ':attribute alanı, :other alanının mevcut olmasını yasaklar.',
+    'regex' => ':attribute formatı geçersiz.',
+    'required' => ':attribute alanı gereklidir.',
+    'required_array_keys' => ':attribute alanı, şu girişleri içermelidir: :values.',
+    'required_if' => ':attribute alanı, :other :value olduğunda gereklidir.',
+    'required_unless' => ':attribute alanı, :other :values içinde olmadıkça gereklidir.',
+    'required_with' => ':attribute alanı, :values mevcut olduğunda gereklidir.',
+    'required_with_all' => ':attribute alanı, :values mevcut olduğunda gereklidir.',
+    'required_without' => ':attribute alanı, :values mevcut olmadığında gereklidir.',
+    'required_without_all' => ':attribute alanı, :values hiçbirisi mevcut olmadığında gereklidir.',
+    'same' => ':attribute ve :other eşleşmelidir.',
     'size' => [
-        'array' => 'The :attribute must contain :size items.',
-        'file' => 'The :attribute must be :size kilobytes.',
-        'numeric' => 'The :attribute must be :size.',
-        'string' => 'The :attribute must be :size characters.',
+        'array' => ':attribute, :size öğe içermelidir.',
+        'file' => ':attribute, :size kilobayt olmalıdır.',
+        'numeric' => ':attribute, :size olmalıdır.',
+        'string' => ':attribute, :size karakter olmalıdır.',
     ],
-    'starts_with' => 'The :attribute must start with one of the following: :values.',
-    'string' => 'The :attribute must be a string.',
-    'timezone' => 'The :attribute must be a valid timezone.',
-    'unique' => 'The :attribute has already been taken.',
-    'uploaded' => 'The :attribute failed to upload.',
-    'url' => 'The :attribute must be a valid URL.',
-    'uuid' => 'The :attribute must be a valid UUID.',
+    'starts_with' => ':attribute, şu değerlerden biriyle başlamalıdır: :values.',
+    'string' => ':attribute bir metin olmalıdır.',
+    'timezone' => ':attribute geçerli bir zaman dilimi olmalıdır.',
+    'unique' => ':attribute zaten alınmış.',
+    'uploaded' => ':attribute yüklenemedi.',
+    'url' => ':attribute geçerli bir URL olmalıdır.',
+    'uuid' => ':attribute geçerli bir UUID olmalıdır.',
 
     /*
     |--------------------------------------------------------------------------
-    | Custom Validation Language Lines
+    | Özel Doğrulama Dil Satırları
     |--------------------------------------------------------------------------
     |
-    | Here you may specify custom validation messages for attributes using the
-    | convention "attribute.rule" to name the lines. This makes it quick to
-    | specify a specific custom language line for a given attribute rule.
+    | Burada, belirli bir öznitelik kuralı için özel doğrulama mesajları
+    | belirtebilirsiniz. Bu, belirli bir öznitelik kuralı için hızlıca özel
+    | bir dil satırı belirtmenizi sağlar.
     |
     */
 
@@ -156,12 +156,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Custom Validation Attributes
+    | Özel Doğrulama Öznitelikleri
     |--------------------------------------------------------------------------
     |
-    | The following language lines are used to swap our attribute placeholder
-    | with something more reader friendly such as "E-Mail Address" instead
-    | of "email". This simply helps us make our message more expressive.
+    | Aşağıdaki dil satırları, öznitelik yer tutucularımızı "E-Posta Adresi"
+    | gibi daha okunabilir bir şeyle değiştirmek için kullanılır. Bu, mesajlarımızı
+    | daha ifade edilebilir hale getirmemize yardımcı olur.
     |
     */
 
