@@ -22,9 +22,9 @@ class ThemeOptionSeeder extends ThemeSeeder
         $this->uploadFiles('shapes', 'main');
 
         return [
-            'site_name' => 'Shofy',
-            'site_title' => 'Shofy - Multipurpose eCommerce Laravel Script',
-            'seo_description' => 'Shofy is a powerful tool eCommerce Laravel script for creating a professional and visually appealing online store.',
+            'site_name' => 'fSoft',
+            'site_title' => 'fSoft - Multipurpose eCommerce Laravel Script',
+            'seo_description' => 'fSoft is a powerful tool eCommerce Laravel script for creating a professional and visually appealing online store.',
             'copyright' => '© %Y All Rights Reserved.',
             'tp_primary_font' => 'Roboto',
             'primary_color' => '#0C55AA',
