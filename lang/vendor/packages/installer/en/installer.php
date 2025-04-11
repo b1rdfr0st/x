@@ -4,81 +4,81 @@ return [
 
     /**
      *
-     * Shared translations.
+     * Paylaşılan çeviriler.
      *
      */
-    'title' => 'Installation',
-    'next' => 'Next Step',
-    'back' => 'Previous',
-    'finish' => 'Install',
-    'installation' => 'Installation',
+    'title' => 'Kurulum',
+    'next' => 'Sonraki Adım',
+    'back' => 'Önceki',
+    'finish' => 'Kur',
+    'installation' => 'Kurulum',
     'forms' => [
-        'errorTitle' => 'The following errors occurred:',
+        'errorTitle' => 'Aşağıdaki hatalar oluştu:',
     ],
 
     /**
      *
-     * Home page translations.
+     * Ana sayfa çevirileri.
      *
      */
     'welcome' => [
-        'title' => 'Welcome',
-        'message' => 'Before getting started, we need some information on the database. You will need to know the following items before proceeding.',
-        'language' => 'Language',
-        'next' => 'Let\'s go',
+        'title' => 'Hoş Geldiniz',
+        'message' => 'Başlamadan önce, veritabanı hakkında bazı bilgilere ihtiyacımız var. Devam etmeden önce aşağıdaki öğeleri bilmeniz gerekecek.',
+        'language' => 'Dil',
+        'next' => 'Hadi başlayalım',
     ],
 
     /**
      *
-     * Requirements page translations.
+     * Gereksinimler sayfası çevirileri.
      *
      */
     'requirements' => [
-        'title' => 'Server Requirements',
-        'next' => 'Check Permissions',
+        'title' => 'Sunucu Gereksinimleri',
+        'next' => 'İzinleri Kontrol Et',
     ],
 
     /**
      *
-     * Permissions page translations.
+     * İzinler sayfası çevirileri.
      *
      */
     'permissions' => [
-        'next' => 'Configure Environment',
+        'next' => 'Ortamı Yapılandır',
     ],
 
     /**
      *
-     * Environment page translations.
+     * Ortam sayfası çevirileri.
      *
      */
     'environment' => [
         'wizard' => [
-            'title' => 'Environment Settings',
+            'title' => 'Ortam Ayarları',
             'form' => [
-                'name_required' => 'An environment name is required.',
-                'app_name_label' => 'Site title',
-                'app_name_placeholder' => 'Site title',
+                'name_required' => 'Bir ortam adı gereklidir.',
+                'app_name_label' => 'Site başlığı',
+                'app_name_placeholder' => 'Site başlığı',
                 'app_url_label' => 'URL',
                 'app_url_placeholder' => 'URL',
-                'db_connection_label' => 'Database Connection',
+                'db_connection_label' => 'Veritabanı Bağlantısı',
                 'db_connection_label_mysql' => 'MySQL',
                 'db_connection_label_sqlite' => 'SQLite',
                 'db_connection_label_pgsql' => 'PostgreSQL',
-                'db_host_label' => 'Database host',
-                'db_host_placeholder' => 'Database host',
-                'db_port_label' => 'Database port',
-                'db_port_placeholder' => 'Database port',
-                'db_name_label' => 'Database name',
-                'db_name_placeholder' => 'Database name',
-                'db_username_label' => 'Database username',
-                'db_username_placeholder' => 'Database username',
-                'db_password_label' => 'Database password',
-                'db_password_placeholder' => 'Database password',
+                'db_host_label' => 'Veritabanı sunucusu',
+                'db_host_placeholder' => 'Veritabanı sunucusu',
+                'db_port_label' => 'Veritabanı portu',
+                'db_port_placeholder' => 'Veritabanı portu',
+                'db_name_label' => 'Veritabanı adı',
+                'db_name_placeholder' => 'Veritabanı adı',
+                'db_username_label' => 'Veritabanı kullanıcı adı',
+                'db_username_placeholder' => 'Veritabanı kullanıcı adı',
+                'db_password_label' => 'Veritabanı şifresi',
+                'db_password_placeholder' => 'Veritabanı şifresi',
                 'buttons' => [
-                    'install' => 'Install',
+                    'install' => 'Kur',
                 ],
-                'db_host_helper' => 'If you use Laravel Sail, just change DB_HOST to DB_HOST=mysql. On some hosting DB_HOST can be localhost instead of 127.0.0.1',
+                'db_host_helper' => 'Eğer Laravel Sail kullanıyorsanız, DB_HOST değerini DB_HOST=mysql olarak değiştirin. Bazı hostinglerde DB_HOST, 127.0.0.1 yerine localhost olabilir.',
                 'db_connections' => [
                     'mysql' => 'MySQL',
                     'sqlite' => 'SQLite',
@@ -86,50 +86,50 @@ return [
                 ],
             ],
         ],
-        'success' => 'Your .env file settings have been saved.',
-        'errors' => 'Unable to save the .env file, Please create it manually.',
+        'success' => '.env dosyası ayarları başarıyla kaydedildi.',
+        'errors' => '.env dosyası kaydedilemedi, lütfen manuel olarak oluşturun.',
     ],
 
     'theme' => [
-        'title' => 'Choose theme',
-        'message' => 'Choose a theme to personalize the appearance of your website. This selection will also import sample data tailored to the chosen theme.',
+        'title' => 'Tema Seçin',
+        'message' => 'Web sitenizin görünümünü kişiselleştirmek için bir tema seçin. Bu seçim, seçilen temaya uygun örnek verileri de içe aktaracaktır.',
     ],
 
     /**
-     * Create account page.
+     * Hesap oluşturma sayfası.
      */
     'createAccount' => [
-        'title' => 'Create account',
+        'title' => 'Hesap oluştur',
         'form' => [
-            'first_name' => 'First name',
-            'last_name' => 'Last name',
-            'username' => 'Username',
-            'email' => 'Email',
-            'password' => 'Password',
-            'password_confirmation' => 'Password confirmation',
-            'create' => 'Create',
+            'first_name' => 'Ad',
+            'last_name' => 'Soyad',
+            'username' => 'Kullanıcı Adı',
+            'email' => 'E-posta',
+            'password' => 'Şifre',
+            'password_confirmation' => 'Şifre Onayı',
+            'create' => 'Oluştur',
         ],
     ],
 
     /**
-     * License page.
+     * Lisans sayfası.
      */
 
     'license' => [
-        'title' => 'Activate License',
-        'skip' => 'Skip for now',
+        'title' => 'Lisansı Etkinleştir',
+        'skip' => 'Şimdilik atla',
     ],
 
-    'install' => 'Install',
+    'install' => 'Kur',
 
     'final' => [
-        'pageTitle' => 'Installation Finished',
-        'title' => 'Done',
-        'message' => 'Application has been successfully installed.',
-        'exit' => 'Go to admin dashboard',
+        'pageTitle' => 'Kurulum Tamamlandı',
+        'title' => 'Tamamlandı',
+        'message' => 'Uygulama başarıyla kuruldu.',
+        'exit' => 'Yönetici paneline git',
     ],
 
-    'install_success' => 'Installed successfully!',
+    'install_success' => 'Başarıyla kuruldu!',
 
-    'install_step_title' => 'Installation - Step :step: :title',
+    'install_step_title' => 'Kurulum - Adım :step: :title',
 ];

@@ -2,19 +2,19 @@
 
 return [
     'form' => [
-        'name' => 'Name',
-        'name_placeholder' => 'Tag\'s name (maximum 120 characters)',
-        'description' => 'Description',
-        'description_placeholder' => 'Short description for tag (maximum 400 characters)',
-        'categories' => 'Categories',
+        'name' => 'Ad',
+        'name_placeholder' => 'Etiketin adı (maksimum 120 karakter)',
+        'description' => 'Açıklama',
+        'description_placeholder' => 'Etiket için kısa açıklama (maksimum 400 karakter)',
+        'categories' => 'Kategoriler',
     ],
     'notices' => [
-        'no_select' => 'Please select at least one tag to proceed',
+        'no_select' => 'Lütfen devam etmek için en az bir etiket seçin',
     ],
-    'create' => 'Create a new tag',
-    'cannot_delete' => 'Tag could not be deleted',
-    'deleted' => 'Tag deleted',
-    'menu' => 'Tags',
-    'edit_this_tag' => 'Edit this tag',
-    'menu_name' => 'Tags',
+    'create' => 'Yeni bir etiket oluştur',
+    'cannot_delete' => 'Etiket silinemedi',
+    'deleted' => 'Etiket silindi',
+    'menu' => 'Etiketler',
+    'edit_this_tag' => 'Bu etiketi düzenle',
+    'menu_name' => 'Etiketler',
 ];

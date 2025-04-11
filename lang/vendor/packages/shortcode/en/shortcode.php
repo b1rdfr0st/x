@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'shortcode' => 'Shortcode',
-    'use' => 'Use',
-    'ui-blocks' => 'UI Blocks',
-    'search' => 'Search...',
-    'no_shortcode_found' => 'No shortcode found.',
+    'shortcode' => 'Kısa Kod',
+    'use' => 'Kullan',
+    'ui-blocks' => 'UI Blokları',
+    'search' => 'Ara...',
+    'no_shortcode_found' => 'Kısa kod bulunamadı.',
 ];
