@@ -30,7 +30,7 @@ class WidgetSeeder extends ThemeSeeder
                     'id' => 'SiteInfoWidget',
                     'logo' => $this->filePath('general/logo.png', 'main'),
                     'logo_height' => 50,
-                    'about' => 'Shofy is a powerful tool eCommerce Laravel script for creating a professional and visually appealing online store.',
+                    'about' => 'Hayalinizdeki online mağaza, fSoft ile gerçeğe dönüşür.',
                     'show_social_links' => true,
                 ],
             ],
@@ -40,7 +40,7 @@ class WidgetSeeder extends ThemeSeeder
                 'position' => 2,
                 'data' => [
                     'id' => 'CustomMenuWidget',
-                    'name' => 'My Account',
+                    'name' => 'Hesabım',
                     'menu_id' => 'my-account',
                 ],
             ],
@@ -50,7 +50,7 @@ class WidgetSeeder extends ThemeSeeder
                 'position' => 3,
                 'data' => [
                     'id' => 'CustomMenuWidget',
-                    'name' => 'Information',
+                    'name' => 'Bilgi',
                     'menu_id' => 'information',
                 ],
             ],
@@ -60,8 +60,8 @@ class WidgetSeeder extends ThemeSeeder
                 'position' => 4,
                 'data' => [
                     'id' => 'SiteContactWidget',
-                    'name' => 'Talk To Us',
-                    'phone_label' => 'Got Questions? Call us',
+                    'name' => 'Bizimle Konuşun',
+                    'phone_label' => 'Sorularınız mı var? Bizi arayın',
                     'phone' => '+670 413 90 762',
                     'email' => 'support@shofy.com',
                     'address' => '79 Sleepy Hollow St. Jamaica, New York 1432',
@@ -73,7 +73,7 @@ class WidgetSeeder extends ThemeSeeder
                 'position' => 5,
                 'data' => [
                     'id' => 'ProductCategoriesWidget',
-                    'name' => 'Health & Beauty',
+                    'name' => 'Sağlık ve Güzellik',
                     'categories' => [5, 6, 7, 8, 10, 11, 12],
                 ],
             ],
@@ -83,7 +83,7 @@ class WidgetSeeder extends ThemeSeeder
                 'position' => 7,
                 'data' => [
                     'id' => 'ProductCategoriesWidget',
-                    'name' => 'Electronics',
+                    'name' => 'Elektronik',
                     'style' => 'simple-text',
                     'categories' => [3, 4, 15, 18, 19, 20],
                 ],
@@ -94,7 +94,7 @@ class WidgetSeeder extends ThemeSeeder
                 'position' => 8,
                 'data' => [
                     'id' => 'ProductCategoriesWidget',
-                    'name' => 'Sweet Treats',
+                    'name' => 'Tatlı İkramlar',
                     'categories' => [11, 12, 13, 14, 15, 16, 17],
                 ],
             ],
@@ -104,7 +104,7 @@ class WidgetSeeder extends ThemeSeeder
                 'position' => 9,
                 'data' => [
                     'id' => 'ProductCategoriesWidget',
-                    'name' => 'Fashion',
+                    'name' => 'Moda',
                     'categories' => [1, 2, 3, 4, 5, 6, 7, 8],
                 ],
             ],
@@ -114,8 +114,8 @@ class WidgetSeeder extends ThemeSeeder
                 'position' => 1,
                 'data' => [
                     'id' => 'NewsletterWidget',
-                    'title' => 'Subscribe our Newsletter',
-                    'subtitle' => 'Sale 20% off all store',
+                    'title' => 'Bültenimize Abone Olun',
+                    'subtitle' => 'Tüm mağazada %20 indirim',
                 ],
             ],
             [
@@ -124,7 +124,7 @@ class WidgetSeeder extends ThemeSeeder
                 'position' => 1,
                 'data' => [
                     'id' => 'SiteCopyrightWidget',
-                    'content' => '© %y% All rights Reserved.',
+                    'content' => '© %y% Tüm Hakları Saklıdır.',
                 ],
             ],
             [
@@ -133,7 +133,7 @@ class WidgetSeeder extends ThemeSeeder
                 'position' => 2,
                 'data' => [
                     'id' => 'SiteAcceptedPaymentsWidget',
-                    'name' => 'Accepted Payments',
+                    'name' => 'Kabul Edilen Ödemeler',
                     'image' => $this->filePath('general/footer-pay.png', 'main'),
                     'url' => '#',
                 ],
@@ -152,11 +152,11 @@ class WidgetSeeder extends ThemeSeeder
                 'position' => 2,
                 'data' => [
                     'id' => 'BlogAboutMeWidget',
-                    'name' => 'About Me',
+                    'name' => 'Hakkımda',
                     'author_url' => '/blog',
                     'author_avatar' => $this->filePath(sprintf('users/%d.jpg', rand(1, 10)), 'main'),
                     'author_name' => "Ravi O'Leigh",
-                    'author_role' => 'Photographer & Blogger',
+                    'author_role' => 'Fotoğrafçı ve Blogger',
                     'author_description' => 'Lorem ligula eget dolor. Aenean massa. Cum sociis que penatibus magnis dis parturient',
                     'author_signature' => $this->filePath('general/signature.png', 'main'),
                 ],
@@ -167,7 +167,7 @@ class WidgetSeeder extends ThemeSeeder
                 'position' => 3,
                 'data' => [
                     'id' => 'BlogPostsWidget',
-                    'name' => 'Latest Posts',
+                    'name' => 'Son Gönderiler',
                     'limit' => 3,
                 ],
             ],
@@ -177,7 +177,7 @@ class WidgetSeeder extends ThemeSeeder
                 'position' => 4,
                 'data' => [
                     'id' => 'BlogCategoriesWidget',
-                    'name' => 'Categories',
+                    'name' => 'Kategoriler',
                     'number_display' => 6,
                 ],
             ],
@@ -187,7 +187,7 @@ class WidgetSeeder extends ThemeSeeder
                 'position' => 5,
                 'data' => [
                     'id' => 'BlogTagsWidget',
-                    'name' => 'Popular Tags',
+                    'name' => 'Popüler Etiketler',
                     'number_display' => 6,
                 ],
             ],
@@ -199,13 +199,13 @@ class WidgetSeeder extends ThemeSeeder
                     'id' => 'ProductDetailInfoWidget',
                     'messages' => [
                         [
-                            ['key' => 'message', 'value' => '30 days easy returns'],
+                            ['key' => 'message', 'value' => '30 günde kolay iade'],
                         ],
                         [
-                            ['key' => 'message', 'value' => 'Order yours before 2.30pm for same day dispatch'],
+                            ['key' => 'message', 'value' => 'Aynı gün gönderim için siparişinizi 14:30\'dan önce verin'],
                         ],
                     ],
-                    'description' => 'Guaranteed safe & secure checkout',
+                    'description' => 'Garantili güvenli ve emniyetli ödeme',
                     'image' => $this->filePath('general/footer-pay.png', 'main'),
                 ],
             ],

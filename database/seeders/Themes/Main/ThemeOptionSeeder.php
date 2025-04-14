@@ -24,7 +24,7 @@ class ThemeOptionSeeder extends ThemeSeeder
         return [
             'site_name' => 'fSoft',
             'site_title' => 'fSoft - Multipurpose eCommerce Laravel Script',
-            'seo_description' => 'fSoft is a powerful tool eCommerce Laravel script for creating a professional and visually appealing online store.',
+            'seo_description' => 'Hayalinizdeki online mağaza, fSoft ile gerçeğe dönüşür.',
             'copyright' => '© %Y All Rights Reserved.',
             'tp_primary_font' => 'Roboto',
             'primary_color' => '#0C55AA',
