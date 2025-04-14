@@ -1,12 +1,12 @@
 <?php
 
 return [
-    'name' => 'Product attributes',
-    'create' => 'New product attribute',
-    'edit' => 'Edit product attribute',
+    'name' => 'Ürün Özellikleri',
+    'create' => 'Yeni ürün özelliği',
+    'edit' => 'Ürün özelliğini düzenle',
     'intro' => [
-        'title' => 'Manage product attributes',
-        'description' => 'Product attribute such as color, width, height ...',
-        'button_text' => 'Create product attribute',
+        'title' => 'Ürün özelliklerini yönet',
+        'description' => 'Ürün özellikleri, örneğin renk, genişlik, yükseklik...',
+        'button_text' => 'Ürün özelliği oluştur',
     ],
 ];

@@ -10,56 +10,56 @@ class BlogSeeder extends ThemeSeeder
 {
     use HasBlogSeeder;
 
-    public function çalıştır(): void
+    public function run(): void
     {
         $this->uploadFiles('blog');
         $this->uploadFiles('users');
 
-        $this->createBlogCategories(array_map(fn ($kategori) => ['name' => $kategori], [
-            'Gevrek Ekmek & Kek',
-            'Moda',
-            'Elektronik',
-            'Ticari',
-            'Organik Meyveler',
-            'Ekolojik',
+        $this->createBlogCategories(array_map(fn ($category) => ['name' => $category], [
+            'Crisp Bread & Cake',
+            'Fashion',
+            'Electronic',
+            'Commercial',
+            'Organic Fruits',
+            'Ecological',
         ]));
 
-        $this->createBlogTags(array_map(fn ($etiket) => ['name' => $etiket], [
-            'Genel',
-            'Tasarım',
-            'Moda',
-            'Markalaşma',
+        $this->createBlogTags(array_map(fn ($tag) => ['name' => $tag], [
+            'General',
+            'Design',
+            'Fashion',
+            'Branding',
             'Modern',
-            'Doğa',
+            'Nature',
             'Vintage',
-            'Güneş Gözlükleri',
+            'Sunglasses',
         ]));
 
-        $this->createBlogPosts(array_map(function ($yazi) {
+        $this->createBlogPosts(array_map(function ($post) {
             return [
-                'name' => $yazi,
+                'name' => $post,
                 'content' => File::get(database_path('seeders/contents/post.html')),
                 'image' => $this->filePath(sprintf('blog/post-%s.jpg', $this->faker->numberBetween(1, 12))),
             ];
         }, [
-            'Doğru Erkek Cüzdanını Seçmek İçin 4 Uzman İpucu',
-            'Şık Çantalar: Tasarımcı Çanta Nasıl Alınır ve Kullanılır?',
-            '2020’nin En Popüler Çanta Trendleri',
-            'Çantanızın Rengini Kıyafetinizle Nasıl Eşleştirirsiniz?',
-            'Deri Çantaların Bakımı Nasıl Yapılır?',
-            "Yazın En Büyük 10 Çanta Trendine Bayılıyoruz",
-            'Başarılı Müziğin Temel Özellikleri',
-            'Saçımı Tıraş Etmeyi Sevdiğim 9 Şey',
-            'Neden Takım Çalışması Gerçekten Hayalleri Gerçekleştirir?',
-            'Dünya Ortalama İnsanlara Hizmet Ediyor',
-            'Ekrandaki Davacılar Oyuncu Değil',
-            'Doğru Zamanlamada Doğru Satış Ekibini İşe Almak',
-            '90’lar Modasının Geri Dönüşünü Tamamen Benimseyin',
-            'İngiliz Kırsalını Keşfetmek',
-            'İşte Valentino’nun Yeni Makyaj Koleksiyonunun İlk Görünümü',
-            'Kendi Tasarım Sürecinizi Takip Edin, Ne İşe Yarıyorsa',
-            'Freelancer Günleri 2024, Yenilikler Neler?',
-            'Her İnsan Vücudu İçin Kaliteli Gıda Gereksinimleri',
+            '4 Expert Tips On How To Choose The Right Men’s Wallet',
+            'Sexy Clutches: How to Buy & Wear a Designer Clutch Bag',
+            'The Top 2020 Handbag Trends to Know',
+            'How to Match the Color of Your Handbag With an Outfit',
+            'How to Care for Leather Bags',
+            "We're Crushing Hard on Summer's 10 Biggest Bag Trends",
+            'Essential Qualities of Highly Successful Music',
+            '9 Things I Love About Shaving My Head',
+            'Why Teamwork Really Makes The Dream Work',
+            'The World Caters to Average People',
+            'The litigants on the screen are not actors',
+            'Hiring the Right Sales Team at the Right Time',
+            'Fully Embrace the Return of 90s fashion',
+            'Exploring the English Countryside',
+            'Here’s the First Valentino’s New Makeup Collection',
+            'Follow Your own Design process, whatever gets',
+            'Freelancer Days 2024, What’s new?',
+            'Quality Foods Requirments For Every Human Body’s',
         ]));
     }
 }

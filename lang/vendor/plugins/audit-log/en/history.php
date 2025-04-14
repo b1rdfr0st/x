@@ -11,7 +11,7 @@ return [
     'changed password' => 'şifre değiştirildi',
     'updated profile' => 'profil güncellendi',
     'attached' => 'ekledi',
-    'shared' => 'paylaştı',
+    'shared' => 'paylaşıldı',
     'to the system' => 'sisteme',
     'of the system' => 'sistemin',
     'menu' => 'menü',

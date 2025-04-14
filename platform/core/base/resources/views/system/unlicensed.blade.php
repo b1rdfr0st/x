@@ -11,10 +11,10 @@
 
             <x-core::card size="md">
                 <x-core::card.body>
-                    <h2 class="mb-3 text-center">Lisans Aktivasyonu Gerekiyor</h2>
+                    <h2 class="mb-3 text-center">Requires License Activation</h2>
 
                     <p class="text-secondary mb-4">
-                        Platformumuzu kullanmaya devam etmek istiyorsanız, lütfen önce lisansı etkinleştirin.
+                        If you want to continue to use our platform, please activate license first.
                     </p>
 
                     <ul class="list-unstyled space-y">
@@ -26,8 +26,8 @@
                                 />
                             </span>
                             <span class="col">
-                                <strong class="d-block">Güncellemeleri Alın, HEM DE DAİMA!</strong>
-                                <span class="d-block text-secondary">Web siteniz her zaman güncel kalır.</span>
+                                <strong class="d-block">Get Updates, FOREVER!</strong>
+                                <span class="d-block text-secondary">Your website is always up-to-date.</span>
                             </span>
                         </li>
 
@@ -39,8 +39,9 @@
                                 />
                             </span>
                             <span class="col">
-                                <strong class="d-block">Geliştirici Ekibimizden Destek Alın</strong>
-                                <span class="d-block text-secondary">Bir sorununuz mu var? Endişelenmeyin. İhtiyacınız olduğunda her zaman buradayız.</span>
+                                <strong class="d-block">Get Support From Our Dev Team</strong>
+                                <span class="d-block text-secondary">You've a problem. Don't worry. We are here to help
+                                    you everytime you need.</span>
                             </span>
                         </li>
 
@@ -52,11 +53,11 @@
                                 />
                             </span>
                             <span class="col">
-                                <strong class="d-block">Ücretsiz Eklentiler Alın</strong>
-                                <span class="d-block text-secondary">Sınırsız eklenti, web sitenizi <a
+                                <strong class="d-block">Get Free Plugins</strong>
+                                <span class="d-block text-secondary">Unlimited plugins, extended your website from <a
                                         href="https://marketplace.botble.com"
                                         target="_blank"
-                                    >pazar yerimizden <x-core::icon name="ti ti-external-link" /></a> genişletin.</span>
+                                    >our marketplace <x-core::icon name="ti ti-external-link" /></a>.</span>
                             </span>
                         </li>
                     </ul>
@@ -69,7 +70,7 @@
                             data-bs-target="#quick-activation-license-modal"
                             aria-label="close"
                         >
-                            Lisansı Etkinleştir
+                            Activate License
                         </x-core::button>
                     </div>
 
@@ -89,7 +90,7 @@
                                 class="w-100"
                                 color="link"
                                 size="sm"
-                            >Atla</x-core::button>
+                            >Skip</x-core::button>
                         </form>
                     </div>
                 </x-core::card.body>

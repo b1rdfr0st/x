@@ -8,48 +8,48 @@ use Botble\Theme\Database\Seeders\ThemeSeeder;
 
 class BrandSeeder extends ThemeSeeder
 {
-    public function çalıştır(): void
+    public function run(): void
     {
         $this->uploadFiles('brands');
 
-        $markalar = [
+        $brands = [
             [
                 'name' => 'FoodPound',
-                'description' => 'Yeni Atıştırmalık Çıkışı',
+                'description' => 'New Snacks Release',
                 'logo' => $this->filePath('brands/1.png'),
             ],
             [
                 'name' => 'iTea JSC',
-                'description' => 'Mutlu Çay %100 Organik. 29,9₺’den Başlayan Fiyatlarla',
+                'description' => 'Happy Tea 100% Organic. From $29.9',
                 'logo' => $this->filePath('brands/2.png'),
             ],
             [
-                'name' => 'Soda Markası',
-                'description' => 'Taze Et Sosis. 2 Alana 1 Bedava!',
+                'name' => 'Soda Brand',
+                'description' => 'Fresh Meat Sausage. BUY 2 GET 1!',
                 'logo' => $this->filePath('brands/3.png'),
             ],
             [
                 'name' => 'Shofy',
-                'description' => 'Taze Et Sosis. 2 Alana 1 Bedava!',
+                'description' => 'Fresh Meat Sausage. BUY 2 GET 1!',
                 'logo' => $this->filePath('brands/4.png'),
             ],
             [
-                'name' => 'Soda Markası',
-                'description' => 'Taze Et Sosis. 2 Alana 1 Bedava!',
+                'name' => 'Soda Brand',
+                'description' => 'Fresh Meat Sausage. BUY 2 GET 1!',
                 'logo' => $this->filePath('brands/5.png'),
             ],
         ];
 
         Brand::query()->truncate();
 
-        foreach ($markalar as $anahtar => $marka) {
-            $marka = Brand::query()->create([
-                ...$marka,
-                'order' => $anahtar,
+        foreach ($brands as $key => $brand) {
+            $brand = Brand::query()->create([
+                ...$brand,
+                'order' => $key,
                 'is_featured' => true,
             ]);
 
-            SlugHelper::createSlug($marka);
+            SlugHelper::createSlug($brand);
         }
     }
 }

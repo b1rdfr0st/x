@@ -49,11 +49,11 @@ class GallerySeeder extends ThemeSeeder
     protected function getData(): array
     {
         return [
-            'Mükemmel',
-            'Yeni Gün',
-            'Mutlu Gün',
-            'Doğa',
-            'Sabah',
+            'Perfect',
+            'New Day',
+            'Happy Day',
+            'Nature',
+            'Morning',
         ];
     }
 }

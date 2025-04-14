@@ -1,24 +1,24 @@
 <?php
 
 return [
-    'name' => 'Product Inventory',
-    'storehouse_management' => 'Storehouse Management',
+    'name' => 'Ürün Envanteri',
+    'storehouse_management' => 'Depo Yönetimi',
 
     'import' => [
-        'name' => 'Update Product Inventory',
-        'description' => 'Update product inventory in bulk by uploading a CSV/Excel file.',
-        'done_message' => 'Updated :count product(s) successfully.',
+        'name' => 'Ürün Envanterini Güncelle',
+        'description' => 'Bir CSV/Excel dosyası yükleyerek toplu olarak ürün envanterini güncelleyin.',
+        'done_message' => ':count ürün başarıyla güncellendi.',
         'rules' => [
-            'id' => 'The ID field is mandatory and must be exists in products table.',
-            'name' => 'The name field is mandatory and must be a string.',
-            'sku' => 'The SKU field must be a string.',
-            'with_storehouse_management' => 'The with storehouse management field must be "Yes" or "No".',
-            'quantity' => 'The quantity field is mandatory when with storehouse management is "Yes".',
-            'stock_status' => 'The stock status field is mandatory when with storehouse management is "No" and must be one of the following values: :statuses.',
+            'id' => 'ID alanı zorunludur ve ürünler tablosunda mevcut olmalıdır.',
+            'name' => 'Ad alanı zorunludur ve bir metin olmalıdır.',
+            'sku' => 'SKU alanı bir metin olmalıdır.',
+            'with_storehouse_management' => 'Depo yönetimi alanı "Evet" veya "Hayır" olmalıdır.',
+            'quantity' => 'Depo yönetimi "Evet" olduğunda miktar alanı zorunludur.',
+            'stock_status' => 'Depo yönetimi "Hayır" olduğunda stok durumu alanı zorunludur ve şu değerlerden biri olmalıdır: :statuses.',
         ],
     ],
 
     'export' => [
-        'description' => 'Export product inventory to a CSV/Excel file.',
+        'description' => 'Ürün envanterini bir CSV/Excel dosyasına aktarın.',
     ],
 ];

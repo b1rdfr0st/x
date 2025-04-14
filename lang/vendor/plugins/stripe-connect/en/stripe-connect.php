@@ -1,22 +1,22 @@
 <?php
 
 return [
-    'stripe_account_id' => 'Stripe Account ID',
-    'go_to_dashboard' => 'Go to Express Dashboard',
+    'stripe_account_id' => 'Stripe Hesap ID',
+    'go_to_dashboard' => 'Express Dashboard\'a Git',
     'connect' => [
-        'label' => 'Connect with Stripe',
-        'description' => 'Connect your Stripe account to collect payments.',
+        'label' => 'Stripe ile Bağlan',
+        'description' => 'Ödemeleri toplamak için Stripe hesabınızı bağlayın.',
     ],
     'disconnect' => [
-        'label' => 'Disconnect Stripe',
-        'confirm' => 'Are you sure you want to disconnect your Stripe account?',
+        'label' => 'Stripe Bağlantısını Kes',
+        'confirm' => 'Stripe hesabınızın bağlantısını gerçekten kesmek istiyor musunuz?',
     ],
     'notifications' => [
-        'connected' => 'Your Stripe account has been connected.',
-        'disconnected' => 'Your Stripe account has been disconnected.',
-        'now_active' => 'Your Stripe account is now active.',
+        'connected' => 'Stripe hesabınız bağlandı.',
+        'disconnected' => 'Stripe hesabınızın bağlantısı kesildi.',
+        'now_active' => 'Stripe hesabınız artık aktif.',
     ],
     'withdrawal' => [
-        'payout_info' => 'Your payout will be automatically transferred to your Stripe account with ID: :stripe_account_id.',
+        'payout_info' => 'Ödemeniz, :stripe_account_id ID\'li Stripe hesabınıza otomatik olarak aktarılacaktır.',
     ],
 ];
