@@ -18,7 +18,7 @@ class FlashSaleSeeder extends ThemeSeeder
          * @var FlashSale $flashSale
          */
         $flashSale = FlashSale::query()->create([
-            'name' => 'Winter Sale',
+            'name' => 'Kış İndirimi', // "Winter Sale" ifadesi Türkçeleştirildi
             'end_date' => $this->now()->addMonths(3)->addDays($this->fake()->numberBetween(10, 30))->toDateString(),
         ]);
 
@@ -33,9 +33,9 @@ class FlashSaleSeeder extends ThemeSeeder
 
             $flashSale->products()->attach([
                 $product->getKey() => [
-                    'price' => $price - ($price * rand(10, 70) / 100),
-                    'quantity' => rand(6, 20),
-                    'sold' => rand(1, 5),
+                    'price' => $price - ($price * rand(10, 70) / 100), // İndirim oranı hesaplanıyor
+                    'quantity' => rand(6, 20), // Ürün miktarı rastgele belirleniyor
+                    'sold' => rand(1, 5), // Satılan miktar rastgele belirleniyor
                 ],
             ]);
         }

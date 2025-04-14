@@ -15,11 +15,11 @@
     <div class="{{ AdminAppearance::getContainerWidth() }}">
         <div class="d-flex justify-content-between align-items-center">
             <div>
-                Your license is invalid, please contact support. If you didn't set up license code, please go to
+                Lisansınız geçersiz, lütfen destek ile iletişime geçin. Eğer lisans kodunu henüz ayarlamadıysanız, lütfen
                 <a
                     href="{{ route('settings.general') }}"
                     class="text-white fw-bold"
-                > Settings </a> to activate license!
+                > Ayarlar </a> bölümüne giderek lisansı etkinleştirin!
             </div>
 
             @if ($manageLicense)

@@ -14,23 +14,23 @@ class AdsSeeder extends ThemeSeeder
     {
         Ads::query()->truncate();
 
-        $now = $this->now();
+        $simdi = $this->now();
 
         foreach ($this->getData() as $index => $item) {
             $index++;
 
-            $ads = Ads::query()->create([
+            $reklam = Ads::query()->create([
                 ...Arr::except($item, 'metadata'),
-                'name' => "Ads $index",
-                'expired_at' => $now->clone()->addYears(5)->toDateString(),
+                'name' => "Reklam $index",
+                'expired_at' => $simdi->clone()->addYears(5)->toDateString(),
                 'location' => 'not_set',
                 'order' => $index,
                 'ads_type' => 'custom_ad',
             ]);
 
             if (isset($item['metadata'])) {
-                foreach ($item['metadata'] as $key => $value) {
-                    MetaBox::saveMetaBoxData($ads, $key, $value);
+                foreach ($item['metadata'] as $anahtar => $deger) {
+                    MetaBox::saveMetaBoxData($reklam, $anahtar, $deger);
                 }
             }
         }
@@ -41,7 +41,7 @@ class AdsSeeder extends ThemeSeeder
         $this->uploadFiles('banners');
         $this->uploadFiles('gadgets');
 
-        $products = Product::query()
+        $urunler = Product::query()
             ->inRandomOrder()
             ->limit(3)
             ->get();
@@ -52,9 +52,9 @@ class AdsSeeder extends ThemeSeeder
                 'image' => $this->filePath('banners/1.jpg'),
                 'url' => '/products',
                 'metadata' => [
-                    'title' => "Smartphone \n BLU G91 Pro 2022",
-                    'subtitle' => 'Sale 20% off all store',
-                    'button_label' => 'Shop Now',
+                    'title' => "Akıllı Telefon \n BLU G91 Pro 2022",
+                    'subtitle' => 'Tüm mağazada %20 indirim',
+                    'button_label' => 'Şimdi Alışveriş Yap',
                 ],
             ],
             [
@@ -62,9 +62,9 @@ class AdsSeeder extends ThemeSeeder
                 'image' => $this->filePath('banners/2.jpg'),
                 'url' => '/products',
                 'metadata' => [
-                    'title' => "HyperX Cloud II \n Wireless",
-                    'subtitle' => 'Sale 35% off',
-                    'button_label' => 'Shop Now',
+                    'title' => "HyperX Cloud II \n Kablosuz",
+                    'subtitle' => '%35 indirim',
+                    'button_label' => 'Şimdi Alışveriş Yap',
                 ],
             ],
             [
@@ -72,8 +72,8 @@ class AdsSeeder extends ThemeSeeder
                 'image' => $this->filePath('gadgets/gadget-banner-1.jpg'),
                 'url' => '/products',
                 'metadata' => [
-                    'title' => "Selected novelty \n Products",
-                    'subtitle' => 'Only $99.00',
+                    'title' => "Seçilmiş yenilikçi \n Ürünler",
+                    'subtitle' => 'Sadece 99,00 ₺', // Değiştirildi
                 ],
             ],
             [
@@ -81,38 +81,38 @@ class AdsSeeder extends ThemeSeeder
                 'image' => $this->filePath('gadgets/gadget-banner-2.jpg'),
                 'url' => '/products',
                 'metadata' => [
-                    'title' => "Top Rated \n Products",
-                    'subtitle' => 'Only $55.00',
+                    'title' => "En Çok Oy Alan \n Ürünler",
+                    'subtitle' => 'Sadece 55,00 ₺', // Değiştirildi
                 ],
             ],
             [
                 'key' => 'B5ZA76ZWMWAE',
                 'image' => $this->filePath('banners/slider-1.png'),
-                'url' => $products[0]->url,
+                'url' => $urunler[0]->url,
                 'metadata' => [
                     'title' => 'Samsung Galaxy Tab S6, Wifi Tablet',
-                    'subtitle' => 'Tablet Collection 2023',
-                    'button_label' => 'Shop Now',
+                    'subtitle' => 'Tablet Koleksiyonu 2023',
+                    'button_label' => 'Şimdi Alışveriş Yap',
                 ],
             ],
             [
                 'key' => 'F1LTQS976YPY',
                 'image' => $this->filePath('banners/slider-2.png'),
-                'url' => $products[1]->url,
+                'url' => $urunler[1]->url,
                 'metadata' => [
                     'title' => 'Samsung Galaxy Tab S6, Wifi Tablet',
-                    'subtitle' => 'Tablet Collection 2023',
-                    'button_label' => 'Shop Now',
+                    'subtitle' => 'Tablet Koleksiyonu 2023',
+                    'button_label' => 'Şimdi Alışveriş Yap',
                 ],
             ],
             [
                 'key' => 'IHPZ2WBSYJUK',
                 'image' => $this->filePath('banners/slider-3.png'),
-                'url' => $products[2]->url,
+                'url' => $urunler[2]->url,
                 'metadata' => [
                     'title' => 'Samsung Galaxy Tab S6, Wifi Tablet',
-                    'subtitle' => 'Tablet Collection 2023',
-                    'button_label' => 'Shop Now',
+                    'subtitle' => 'Tablet Koleksiyonu 2023',
+                    'button_label' => 'Şimdi Alışveriş Yap',
                 ],
             ],
         ];

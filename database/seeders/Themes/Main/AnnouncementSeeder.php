@@ -14,13 +14,13 @@ class AnnouncementSeeder extends ThemeSeeder
     {
         Announcement::query()->truncate();
 
-        $now = $this->now();
+        $simdi = $this->now();
 
-        foreach ($this->getData() as $key => $value) {
+        foreach ($this->getData() as $anahtar => $deger) {
             Announcement::query()->create([
-                'name' => sprintf('Announcement %s', $key + 1),
-                'content' => $value,
-                'start_date' => $now,
+                'name' => sprintf('Duyuru %s', $anahtar + 1),
+                'content' => $deger,
+                'start_date' => $simdi,
                 'dismissible' => true,
             ]);
         }
@@ -31,9 +31,9 @@ class AnnouncementSeeder extends ThemeSeeder
     protected function getData(): array
     {
         return [
-            'Enjoy free shipping on all orders over $99! Shop now and save on delivery costs.',
-            'Need assistance? Our customer support is available 24/7 to help you with any questions or concerns.',
-            'Shop with confidence! We offer a hassle-free 30 days return service for your peace of mind.',
+            '99₺ üzerindeki tüm siparişlerde ücretsiz kargo fırsatından yararlanın! Şimdi alışveriş yapın ve teslimat maliyetlerinden tasarruf edin.',
+            'Yardıma mı ihtiyacınız var? Müşteri destek ekibimiz 7/24 hizmetinizde, her türlü soru veya sorununuzda size yardımcı olmaya hazır.',
+            'Güvenle alışveriş yapın! İçiniz rahat olsun diye zahmetsiz 30 günlük iade hizmeti sunuyoruz.',
         ];
     }
 
