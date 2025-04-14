@@ -3,8 +3,8 @@
         ->user()
         ->hasPermission('core.manage.license');
 
-    $licenseTitle = __('License');
-    $licenseDescription = __('Setup license code');
+    $licenseTitle = __('Lisans');
+    $licenseDescription = __('Lisans kodunu yapılandırın');
 @endphp
 
 <v-license-form
@@ -34,9 +34,8 @@
                 :description="$licenseDescription"
             >
                 <p class="text-info">
-                    <span v-if="license.licensed_to">Licensed to <span v-text="license.licensed_to"></span>.
-                    </span>Activated
-                        since <span v-text="license.activated_at"></span>.
+                    <span v-if="license.licensed_to">Lisans Sahibi: <span v-text="license.licensed_to"></span>.
+                    </span><span v-text="license.activated_at"></span> tarihinden itibaren aktif.
                 </p>
 
                 <div>
@@ -45,7 +44,7 @@
                         @click="deactivateLicense"
                         :disabled="!$manageLicense"
                     >
-                        Deactivate license
+                        Lisansı Devre Dışı Bırak
                     </x-core::button>
                 </div>
             </x-core-setting::section>
