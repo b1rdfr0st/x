@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'name' => 'Ürün Etiketleri',
-    'create' => 'Yeni ürün etiketi',
-    'edit' => 'Ürün etiketini düzenle',
-    'background_color' => 'Arka Plan Rengi',
-    'text_color' => 'Metin Rengi',
-    'text_color_helper' => 'Bu renk, ürün etiketi bir ürün rozetinde göründüğünde etiket metni için kullanılacaktır.',
+    'name' => 'Product labels',
+    'create' => 'New product label',
+    'edit' => 'Edit product label',
+    'background_color' => 'Background Color',
+    'text_color' => 'Text Color',
+    'text_color_helper' => 'This color will be used for the product label text when the label appears in a product badge.',
 ];

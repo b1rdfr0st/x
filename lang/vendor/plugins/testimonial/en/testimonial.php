@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'name' => 'Referanslar',
-    'description' => 'Sistem referanslarınızı yönetin',
-    'create' => 'Yeni referans',
-    'company' => 'Pozisyon/Şirket',
+    'name' => 'Testimonials',
+    'description' => 'Manage your system testimonials',
+    'create' => 'New testimonial',
+    'company' => 'Position/Company',
 ];

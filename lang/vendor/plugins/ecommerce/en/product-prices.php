@@ -1,24 +1,24 @@
 <?php
 
 return [
-    'name' => 'Ürün Fiyatları',
-    'warning_prices' => 'Bu fiyatlar ürünün orijinal maliyetlerini temsil eder ve hızlı satışlar, promosyonlar gibi faktörlerden dolayı nihai fiyatları yansıtmayabilir.',
+    'name' => 'Product Prices',
+    'warning_prices' => 'These prices represent the original costs of the product and may not reflect the final prices, which could vary due to factors such as flash sales, promotions, and more.',
 
     'import' => [
-        'name' => 'Ürün Fiyatlarını Güncelle',
-        'description' => 'Bir CSV/Excel dosyası yükleyerek toplu olarak ürün fiyatlarını güncelleyin.',
-        'done_message' => ':count ürün başarıyla güncellendi.',
+        'name' => 'Update Product Prices',
+        'description' => 'Update product prices in bulk by uploading a CSV/Excel file.',
+        'done_message' => 'Updated :count product(s) successfully.',
         'rules' => [
-            'id' => 'ID alanı zorunludur ve ürünler tablosunda mevcut olmalıdır.',
-            'name' => 'Ad alanı zorunludur ve bir metin olmalıdır.',
-            'sku' => 'SKU alanı bir metin olmalıdır.',
-            'cost_per_item' => 'Birim başına maliyet alanı sayısal bir değer olmalıdır.',
-            'price' => 'Fiyat alanı zorunludur ve sayısal bir değer olmalıdır.',
-            'sale_price' => 'İndirimli fiyat alanı sayısal bir değer olmalıdır.',
+            'id' => 'The ID field is mandatory and must be exists in products table.',
+            'name' => 'The name field is mandatory and must be a string.',
+            'sku' => 'The SKU field must be a string.',
+            'cost_per_item' => 'The cost per item field must be a numeric value.',
+            'price' => 'The price field is required and must be a numeric value.',
+            'sale_price' => 'The sale price field must be a numeric value.',
         ],
     ],
 
     'export' => [
-        'description' => 'Ürün fiyatlarını bir CSV/Excel dosyasına aktarın.',
+        'description' => 'Export product prices to a CSV/Excel file.',
     ],
 ];

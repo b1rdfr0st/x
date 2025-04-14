@@ -1,15 +1,15 @@
 <?php
 
 return [
-    'name' => 'Şehirler',
-    'description' => 'Konum şehirlerini yönetin',
-    'create' => 'Yeni şehir',
-    'state' => 'Eyalet',
-    'select_state' => 'Eyalet seçin...',
-    'select_city' => 'Şehir seçin...',
-    'country' => 'Ülke',
-    'select_country' => 'Ülke seçin...',
-    'city' => 'Şehir',
-    'zip_code' => 'Posta Kodu',
-    'zip_code_helper' => 'Posta kodu için temel format beş rakamdır. Örneğin, Amerika Birleşik Devletleri\'nde, 00501 Holtsville, New York\'taki İç Gelir Servisi için benzersiz bir ZIP Kodu örneğidir.',
+    'name' => 'Cities',
+    'description' => 'Manage location cities',
+    'create' => 'New city',
+    'state' => 'State',
+    'select_state' => 'Select state...',
+    'select_city' => 'Select city...',
+    'country' => 'Country',
+    'select_country' => 'Select country...',
+    'city' => 'City',
+    'zip_code' => 'Zip code',
+    'zip_code_helper' => 'The basic format for a zip code is five digits. For example, in the United States, 00501 is an example of a unique ZIP Code for the Internal Revenue Service in Holtsville, New York.',
 ];

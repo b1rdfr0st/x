@@ -1,83 +1,83 @@
 <?php
 
 return [
-    'product_specification' => 'Ürün Özellikleri',
+    'product_specification' => 'Product Specification',
     'specification_groups' => [
-        'title' => 'Özellik Grupları',
+        'title' => 'Specification Groups',
 
         'create' => [
-            'title' => 'Özellik Grubu Oluştur',
+            'title' => 'Create Specification Group',
         ],
 
         'edit' => [
-            'title' => 'Özellik Grubunu Düzenle ":name"',
+            'title' => 'Edit Specification Group ":name"',
         ],
     ],
 
     'specification_attributes' => [
-        'title' => 'Özellik Nitelikleri',
+        'title' => 'Specification Attributes',
 
-        'group' => 'İlişkili Grup',
-        'group_placeholder' => 'Herhangi bir Grup Seçin',
-        'type' => 'Alan Türü',
-        'default_value' => 'Varsayılan Değer',
+        'group' => 'Associated Group',
+        'group_placeholder' => 'Choose any Group',
+        'type' => 'Field Type',
+        'default_value' => 'Default Value',
         'options' => [
-            'heading' => 'Seçenekler',
+            'heading' => 'Options',
 
             'add' => [
-                'label' => 'Yeni seçenek ekle',
+                'label' => 'Add new option',
             ],
         ],
 
         'create' => [
-            'title' => 'Özellik Niteliği Oluştur',
+            'title' => 'Create Specification Attribute',
         ],
 
         'edit' => [
-            'title' => 'Özellik Niteliğini Düzenle ":name"',
+            'title' => 'Edit Specification Attribute ":name"',
         ],
     ],
 
     'specification_tables' => [
-        'title' => 'Özellik Tabloları',
+        'title' => 'Specification Tables',
 
         'create' => [
-            'title' => 'Özellik Tablosu Oluştur',
+            'title' => 'Create Specification Table',
         ],
 
         'edit' => [
-            'title' => 'Özellik Tablosunu Düzenle ":name"',
+            'title' => 'Edit Specification Table ":name"',
         ],
 
         'fields' => [
-            'groups' => 'Bu tabloda görüntülenecek grupları seçin',
-            'name' => 'Grup adı',
-            'assigned_groups' => 'Atanmış Gruplar',
-            'sorting' => 'Sıralama',
+            'groups' => 'Select the groups to display in this table',
+            'name' => 'Group name',
+            'assigned_groups' => 'Assigned Groups',
+            'sorting' => 'Sorting',
         ],
     ],
 
     'product' => [
         'specification_table' => [
-            'options' => 'Seçenekler',
-            'title' => 'Özellik Tablosu',
-            'select_none' => 'Hiçbiri',
-            'description' => 'Bu üründe görüntülenecek özellik tablosunu seçin',
-            'group' => 'Grup',
-            'attribute' => 'Nitelik',
-            'value' => 'Nitelik değeri',
-            'hide' => 'Gizle',
-            'sorting' => 'Sıralama',
+            'options' => 'Options',
+            'title' => 'Specification Table',
+            'select_none' => 'None',
+            'description' => 'Select the specification table to display in this product',
+            'group' => 'Group',
+            'attribute' => 'Attribute',
+            'value' => 'Attribute value',
+            'hide' => 'Hide',
+            'sorting' => 'Sorting',
         ],
     ],
 
     'enums' => [
         'field_types' => [
-            'text' => 'Metin',
-            'textarea' => 'Metin Alanı',
-            'select' => 'Seçim',
-            'checkbox' => 'Onay Kutusu',
-            'radio' => 'Radyo Düğmesi',
+            'text' => 'Text',
+            'textarea' => 'Textarea',
+            'select' => 'Select',
+            'checkbox' => 'Checkbox',
+            'radio' => 'Radio',
         ],
     ],
 ];

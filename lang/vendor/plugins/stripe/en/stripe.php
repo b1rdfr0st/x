@@ -1,17 +1,17 @@
 <?php
 
 return [
-    'webhook_secret' => 'Webhook Gizli Anahtarı',
+    'webhook_secret' => 'Webhook Secret',
     'webhook_setup_guide' => [
-        'title' => 'Stripe Webhook Kurulum Rehberi',
-        'description' => 'Stripe webhook kurulumunu yapmak için aşağıdaki adımları izleyin',
-        'step_1_label' => 'Stripe Dashboard\'a Giriş Yapın',
-        'step_1_description' => ':link adresine erişin ve "Geliştiriciler" sekmesindeki "Webhooks" bölümünde "Endpoint Ekle" düğmesine tıklayın.',
-        'step_2_label' => 'Etkinlik Seçin ve Endpoint Yapılandırın',
-        'step_2_description' => '"payment_intent.succeeded" etkinliğini seçin ve "Endpoint URL" alanına şu URL\'yi girin: :url',
-        'step_3_label' => 'Endpoint Ekle',
-        'step_3_description' => '"Endpoint Ekle" düğmesine tıklayarak webhook\'u kaydedin.',
-        'step_4_label' => 'İmza Gizli Anahtarını Kopyalayın',
-        'step_4_description' => '"Webhook Detayları" bölümünden "İmza Gizli Anahtarı" değerini kopyalayın ve "Ayarlar" sayfasındaki "Ödeme" sekmesindeki "Stripe" bölümünde "Stripe Webhook Gizli Anahtarı" alanına yapıştırın.',
+        'title' => 'Stripe Webhook Setup Guide',
+        'description' => 'Follow these steps to set up a Stripe webhook',
+        'step_1_label' => 'Login to the Stripe Dashboard',
+        'step_1_description' => 'Access the :link and click on the "Add Endpoint" button in the "Webhooks" section of the "Developers" tab.',
+        'step_2_label' => 'Select Event and Configure Endpoint',
+        'step_2_description' => 'Select the "payment_intent.succeeded" event and enter the following URL in the "Endpoint URL" field: :url',
+        'step_3_label' => 'Add Endpoint',
+        'step_3_description' => 'Click the "Add Endpoint" button to save the webhook.',
+        'step_4_label' => 'Copy Signing Secret',
+        'step_4_description' => 'Copy the "Signing Secret" value from the "Webhook Details" section and paste it into the "Stripe Webhook Secret" field in the "Stripe" section of the "Payment" tab in the "Settings" page.',
     ],
 ];

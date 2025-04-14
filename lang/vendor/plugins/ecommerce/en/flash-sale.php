@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'name' => 'Hızlı Satışlar',
-    'create' => 'Yeni hızlı satış',
-    'edit' => 'Hızlı satışı düzenle',
-    'products' => 'Ürünler',
+    'name' => 'Flash sales',
+    'create' => 'New flash sale',
+    'edit' => 'Edit flash sale',
+    'products' => 'Products',
 ];

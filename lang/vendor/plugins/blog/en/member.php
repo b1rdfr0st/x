@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'dob' => ':date doğumlu',
-    'draft_posts' => 'Taslak Gönderiler',
-    'pending_posts' => 'Bekleyen Gönderiler',
-    'published_posts' => 'Yayınlanan Gönderiler',
-    'posts' => 'Gönderiler',
-    'write_post' => 'Bir gönderi yaz',
-    'dashboard' => 'Kontrol Paneli',
+    'dob' => 'Born :date',
+    'draft_posts' => 'Draft Posts',
+    'pending_posts' => 'Pending Posts',
+    'published_posts' => 'Published Posts',
+    'posts' => 'Posts',
+    'write_post' => 'Write a post',
+    'dashboard' => 'Dashboard',
 ];

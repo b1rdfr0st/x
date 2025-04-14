@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'name' => 'Ürün Etiketleri',
-    'create' => 'Yeni ürün etiketi',
-    'edit' => 'Ürün etiketini düzenle',
-    'edit_this_product_tag' => 'Bu ürün etiketini düzenle',
-    'product_tags' => 'Ürün Etiketleri',
+    'name' => 'Product tags',
+    'create' => 'New product tag',
+    'edit' => 'Edit product tag',
+    'edit_this_product_tag' => 'Edit this product tag',
+    'product_tags' => 'Product Tags',
 ];
