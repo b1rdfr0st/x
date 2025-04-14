@@ -6,5 +6,8 @@
         "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_widgets_36824a8d9d34c54e7f123cd4fe03d88d",
         "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_rendering_selectc14e287187eef4501058d51ec1169a8d",
         "e2df835384821fa5036252a0581ba12b@ecommerce_categories_for_widgets_c14e287187eef4501058d51ec1169a8d"
+    ],
+    "Botble\\ACL\\Models\\UserMeta": [
+        "65b83ad065dbeb5292d94ab9580d9273@user-meta-1"
     ]
 }
