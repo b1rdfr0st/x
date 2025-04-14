@@ -8,12 +8,14 @@ final class ReplaceRequestKeyAndMethodValue
 {
     /**
      * @readonly
+     * @var string
      */
-    private string $key;
+    private $key;
     /**
      * @readonly
+     * @var string
      */
-    private string $method;
+    private $method;
     public function __construct(string $key, string $method)
     {
         $this->key = $key;

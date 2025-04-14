@@ -14,7 +14,6 @@ use PHPStan\PhpDocParser\Ast\PhpDoc\ReturnTagValueNode;
 use PHPStan\PhpDocParser\Ast\Type\GenericTypeNode;
 use PHPStan\PhpDocParser\Ast\Type\IdentifierTypeNode;
 use PHPStan\Reflection\ClassReflection;
-use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Type\Generic\GenericObjectType;
 use PHPStan\Type\ObjectType;
 use PHPStan\Type\ThisType;
@@ -26,7 +25,7 @@ use Rector\PhpParser\Node\BetterNodeFinder;
 use Rector\PHPStan\ScopeFetcher;
 use Rector\StaticTypeMapper\StaticTypeMapper;
 use RectorLaravel\AbstractRector;
-use RectorLaravel\NodeAnalyzer\ApplicationAnalyzer;
+use ReflectionClassConstant;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
@@ -38,36 +37,35 @@ class AddGenericReturnTypeToRelationsRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \Rector\NodeTypeResolver\TypeComparator\TypeComparator
      */
-    private TypeComparator $typeComparator;
+    private $typeComparator;
     /**
      * @readonly
+     * @var \Rector\Comments\NodeDocBlock\DocBlockUpdater
      */
-    private DocBlockUpdater $docBlockUpdater;
+    private $docBlockUpdater;
     /**
      * @readonly
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
      */
-    private PhpDocInfoFactory $phpDocInfoFactory;
+    private $phpDocInfoFactory;
     /**
      * @readonly
+     * @var \Rector\PhpParser\Node\BetterNodeFinder
      */
-    private BetterNodeFinder $betterNodeFinder;
+    private $betterNodeFinder;
     /**
      * @readonly
+     * @var \Rector\StaticTypeMapper\StaticTypeMapper
      */
-    private StaticTypeMapper $staticTypeMapper;
+    private $staticTypeMapper;
     /**
      * @readonly
+     * @var string
      */
-    private ReflectionProvider $reflectionProvider;
-    /**
-     * @readonly
-     */
-    private ApplicationAnalyzer $applicationAnalyzer;
+    private $applicationClass = 'Illuminate\Foundation\Application';
     // Relation methods which are supported by this Rector.
-    /**
-     * @var mixed[]
-     */
     private const RELATION_METHODS = [
         'hasOne', 'hasOneThrough', 'morphOne',
         'belongsTo', 'morphTo',
@@ -76,29 +74,24 @@ class AddGenericReturnTypeToRelationsRector extends AbstractRector
     ];
 
     // Relation methods which need the class as TChildModel.
-    /**
-     * @var mixed[]
-     */
     private const RELATION_WITH_CHILD_METHODS = ['belongsTo', 'morphTo'];
 
     // Relation methods which need the class as TIntermediateModel.
-    /**
-     * @var mixed[]
-     */
     private const RELATION_WITH_INTERMEDIATE_METHODS = ['hasManyThrough', 'hasOneThrough'];
 
-    private bool $shouldUseNewGenerics = false;
-    private bool $shouldUsePivotGeneric = false;
+    /**
+     * @var bool
+     */
+    private $shouldUseNewGenerics = false;
 
-    public function __construct(TypeComparator $typeComparator, DocBlockUpdater $docBlockUpdater, PhpDocInfoFactory $phpDocInfoFactory, BetterNodeFinder $betterNodeFinder, StaticTypeMapper $staticTypeMapper, ReflectionProvider $reflectionProvider, ApplicationAnalyzer $applicationAnalyzer)
+    public function __construct(TypeComparator $typeComparator, DocBlockUpdater $docBlockUpdater, PhpDocInfoFactory $phpDocInfoFactory, BetterNodeFinder $betterNodeFinder, StaticTypeMapper $staticTypeMapper, string $applicationClass = 'Illuminate\Foundation\Application')
     {
         $this->typeComparator = $typeComparator;
         $this->docBlockUpdater = $docBlockUpdater;
         $this->phpDocInfoFactory = $phpDocInfoFactory;
         $this->betterNodeFinder = $betterNodeFinder;
         $this->staticTypeMapper = $staticTypeMapper;
-        $this->reflectionProvider = $reflectionProvider;
-        $this->applicationAnalyzer = $applicationAnalyzer;
+        $this->applicationClass = $applicationClass;
     }
 
     public function getRuleDefinition(): RuleDefinition
@@ -239,7 +232,6 @@ CODE_SAMPLE
 
         // Put here to make the check as late as possible
         $this->setShouldUseNewGenerics();
-        $this->setShouldUsePivotGeneric();
 
         $classForChildGeneric = $this->getClassForChildGeneric($scope, $relationMethodCall);
         $classForIntermediateGeneric = $this->getClassForIntermediateGeneric($relationMethodCall);
@@ -261,12 +253,7 @@ CODE_SAMPLE
 
         $genericTypeNode = new GenericTypeNode(
             new FullyQualifiedIdentifierTypeNode($methodReturnTypeName),
-            $this->getGenericTypes(
-                $methodReturnType,
-                $relatedClass,
-                $classForChildGeneric,
-                $classForIntermediateGeneric
-            ),
+            $this->getGenericTypes($relatedClass, $classForChildGeneric, $classForIntermediateGeneric)
         );
 
         // Update or add return tag
@@ -299,7 +286,9 @@ CODE_SAMPLE
     {
         $node = $this->betterNodeFinder->findFirstInFunctionLikeScoped(
             $classMethod,
-            fn (Node $subNode): bool => $subNode instanceof Return_
+            function (Node $subNode): bool {
+                return $subNode instanceof Return_;
+            }
         );
 
         if (! $node instanceof Return_) {
@@ -399,7 +388,7 @@ CODE_SAMPLE
 
         return $this->typeComparator->areTypesEqual(
             $methodReturnTypePHPStanType,
-            $phpDocPHPStanTypeWithoutGenerics,
+            $phpDocPHPStanTypeWithoutGenerics
         );
     }
 
@@ -445,8 +434,8 @@ CODE_SAMPLE
         $phpDocHasIntermediateGeneric = count($phpDocTypes) === 3;
 
         if ($classForIntermediateGeneric === null && ! $phpDocHasIntermediateGeneric) {
-            // If there are less than three generics, it means method is using the old format. We should update it.
-            if (count($phpDocTypes) < 3) {
+            // If there is only one generic, it means method is using the old format. We should update it.
+            if (count($phpDocTypes) === 1) {
                 return false;
             }
 
@@ -473,8 +462,7 @@ CODE_SAMPLE
             return true;
         }
 
-        return ! $classReflection->isTrait()
-            && ! $classReflection->isSubclassOfClass($this->reflectionProvider->getClass('Illuminate\Database\Eloquent\Model'));
+        return ! $classReflection->isTrait() && ! $classReflection->isSubclassOf('Illuminate\Database\Eloquent\Model');
     }
 
     /**
@@ -494,7 +482,7 @@ CODE_SAMPLE
     /**
      * @return IdentifierTypeNode[]
      */
-    private function getGenericTypes(Node $node, string $relatedClass, ?string $childClass, ?string $intermediateClass): array
+    private function getGenericTypes(string $relatedClass, ?string $childClass, ?string $intermediateClass): array
     {
         $generics = [new FullyQualifiedIdentifierTypeNode($relatedClass)];
 
@@ -508,13 +496,6 @@ CODE_SAMPLE
             }
 
             $generics[] = new IdentifierTypeNode('$this');
-
-            if ($this->shouldUsePivotGeneric && $this->isObjectType(
-                $node,
-                new ObjectType('Illuminate\Database\Eloquent\Relations\BelongsToMany')
-            )) {
-                $generics[] = new FullyQualifiedIdentifierTypeNode('\Illuminate\Database\Eloquent\Relations\Pivot');
-            }
         }
 
         return $generics;
@@ -522,17 +503,10 @@ CODE_SAMPLE
 
     private function setShouldUseNewGenerics(): void
     {
-        $this->shouldUseNewGenerics = $this->applicationAnalyzer->isVersion(
-            '>=',
-            '11.15.0'
-        );
-    }
+        $reflectionClassConstant = new ReflectionClassConstant($this->applicationClass, 'VERSION');
 
-    private function setShouldUsePivotGeneric(): void
-    {
-        $this->shouldUsePivotGeneric = $this->applicationAnalyzer->isVersion(
-            '>=',
-            '12.3.0'
-        );
+        if (is_string($reflectionClassConstant->getValue())) {
+            $this->shouldUseNewGenerics = version_compare($reflectionClassConstant->getValue(), '11.15.0', '>=');
+        }
     }
 }

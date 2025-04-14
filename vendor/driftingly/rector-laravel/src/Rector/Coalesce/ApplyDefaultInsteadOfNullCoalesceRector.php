@@ -25,7 +25,7 @@ final class ApplyDefaultInsteadOfNullCoalesceRector extends AbstractRector imple
     /**
      * @var ApplyDefaultInsteadOfNullCoalesce[]
      */
-    private array $applyDefaultWith;
+    private $applyDefaultWith;
 
     public function __construct()
     {
@@ -54,12 +54,13 @@ final class ApplyDefaultInsteadOfNullCoalesceRector extends AbstractRector imple
                 new ConfiguredCodeSample(
                     <<<'CODE_SAMPLE'
 custom_helper('app.name') ?? 'Laravel';
-CODE_SAMPLE,
+CODE_SAMPLE
+,
                     <<<'CODE_SAMPLE'
 custom_helper('app.name', 'Laravel');
 CODE_SAMPLE
                     ,
-                    array_merge(self::defaultLaravelMethods(), [new ApplyDefaultInsteadOfNullCoalesce('custom_helper')]),
+                    array_merge(self::defaultLaravelMethods(), [new ApplyDefaultInsteadOfNullCoalesce('custom_helper')])
                 ),
             ]
         );

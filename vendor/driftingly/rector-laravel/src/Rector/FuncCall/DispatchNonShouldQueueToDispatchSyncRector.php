@@ -27,8 +27,9 @@ class DispatchNonShouldQueueToDispatchSyncRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \PHPStan\Reflection\ReflectionProvider
      */
-    private ReflectionProvider $reflectionProvider;
+    private $reflectionProvider;
     /**
      * @var string
      */
@@ -141,7 +142,7 @@ CODE_SAMPLE
         if (
             ! ($call instanceof StaticCall && $this->isCallOnBusFacade($call)) && (
                 $this->getType(
-                    $call->args[0]->value,
+                    $call->args[0]->value
                 ) instanceof ClosureType ||
                 $call->args[0]->value instanceof Closure ||
                 $call->args[0]->value instanceof ArrowFunction
@@ -187,13 +188,13 @@ CODE_SAMPLE
     {
         try {
             $reflection = $this->reflectionProvider->getClass(
-                $aliasedObjectType->getFullyQualifiedName(),
+                $aliasedObjectType->getFullyQualifiedName()
             );
         } catch (ClassNotFoundException $exception) {
             return false;
         }
 
-        return $reflection->isSubclassOfClass($this->reflectionProvider->getClass(self::SHOULD_QUEUE_INTERFACE));
+        return $reflection->isSubclassOf(self::SHOULD_QUEUE_INTERFACE);
     }
 
     private function isCallOnBusFacade(StaticCall $staticCall): bool

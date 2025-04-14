@@ -28,7 +28,7 @@ class ReplaceServiceContainerCallArgRector extends AbstractRector implements Con
     /**
      * @var ReplaceServiceContainerCallArg[]
      */
-    private array $replaceServiceContainerCallArgs = [];
+    private $replaceServiceContainerCallArgs = [];
 
     public function getRuleDefinition(): RuleDefinition
     {
@@ -37,18 +37,20 @@ class ReplaceServiceContainerCallArgRector extends AbstractRector implements Con
                 <<<'CODE_SAMPLE'
 app('encrypter')->encrypt('...');
 \Illuminate\Support\Facades\Application::make('encrypter')->encrypt('...');
-CODE_SAMPLE,
+CODE_SAMPLE
+,
                 <<<'CODE_SAMPLE'
 app(Illuminate\Contracts\Encryption\Encrypter::class)->encrypt('...');
 \Illuminate\Support\Facades\Application::make(Illuminate\Contracts\Encryption\Encrypter::class)->encrypt('...');
-CODE_SAMPLE,
+CODE_SAMPLE
+,
                 [
                     new ReplaceServiceContainerCallArg(
                         'encrypter',
                         new ClassConstFetch(
                             new Name('Illuminate\Contracts\Encryption\Encrypter'),
                             'class'
-                        ),
+                        )
                     ),
                 ]
             )]

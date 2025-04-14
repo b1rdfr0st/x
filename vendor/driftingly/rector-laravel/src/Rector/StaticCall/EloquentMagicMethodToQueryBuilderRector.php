@@ -31,7 +31,7 @@ final class EloquentMagicMethodToQueryBuilderRector extends AbstractRector imple
     /**
      * @var string[]
      */
-    private array $excludeMethods = [];
+    private $excludeMethods = [];
 
     public function getRuleDefinition(): RuleDefinition
     {

@@ -58,10 +58,12 @@ CODE_SAMPLE
         $methodCall = array_values(
             array_filter(
                 [$node->left, $node->right],
-                fn ($node) => ($node instanceof MethodCall || $node instanceof StaticCall) && $this->isName(
-                    $node->name,
-                    'environment'
-                )
+                function ($node) {
+                    return ($node instanceof MethodCall || $node instanceof StaticCall) && $this->isName(
+                        $node->name,
+                        'environment'
+                    );
+                }
             )
         )[0] ?? null;
 
@@ -71,7 +73,9 @@ CODE_SAMPLE
 
         /** @var Expr $otherNode */
         $otherNode = array_values(
-            array_filter([$node->left, $node->right], static fn ($node) => $node !== $methodCall)
+            array_filter([$node->left, $node->right], static function ($node) use ($methodCall) {
+                return $node !== $methodCall;
+            })
         )[0] ?? null;
 
         if (! $otherNode instanceof String_) {

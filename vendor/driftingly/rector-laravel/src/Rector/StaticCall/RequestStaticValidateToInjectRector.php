@@ -31,12 +31,13 @@ final class RequestStaticValidateToInjectRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \Rector\Reflection\ReflectionResolver
      */
-    private ReflectionResolver $reflectionResolver;
+    private $reflectionResolver;
     /**
      * @var ObjectType[]
      */
-    private array $requestObjectTypes = [];
+    private $requestObjectTypes = [];
 
     public function __construct(
         ReflectionResolver $reflectionResolver

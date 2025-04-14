@@ -35,7 +35,7 @@ final class ModelRelationsExtension implements PropertiesClassReflectionExtensio
 
     public function hasProperty(ClassReflection $classReflection, string $propertyName): bool
     {
-        if (! $classReflection->is(Model::class)) {
+        if (! $classReflection->isSubclassOf(Model::class)) {
             return false;
         }
 

@@ -30,20 +30,16 @@ final class AddExtendsAnnotationToModelFactoriesRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \Rector\Comments\NodeDocBlock\DocBlockUpdater
      */
-    private DocBlockUpdater $docBlockUpdater;
+    private $docBlockUpdater;
     /**
      * @readonly
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
      */
-    private PhpDocInfoFactory $phpDocInfoFactory;
-    /**
-     * @var string
-     */
+    private $phpDocInfoFactory;
     private const EXTENDS_TAG_NAME = '@extends';
 
-    /**
-     * @var string
-     */
     private const FACTORY_CLASS_NAME = 'Illuminate\Database\Eloquent\Factories\Factory';
 
     public function __construct(DocBlockUpdater $docBlockUpdater, PhpDocInfoFactory $phpDocInfoFactory)

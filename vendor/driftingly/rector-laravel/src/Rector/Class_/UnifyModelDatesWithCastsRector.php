@@ -29,16 +29,19 @@ final class UnifyModelDatesWithCastsRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \Rector\NodeManipulator\ClassInsertManipulator
      */
-    private ClassInsertManipulator $classInsertManipulator;
+    private $classInsertManipulator;
     /**
      * @readonly
+     * @var \Rector\PhpParser\Node\Value\ValueResolver
      */
-    private ValueResolver $valueResolver;
+    private $valueResolver;
     /**
      * @readonly
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
      */
-    private PhpDocInfoFactory $phpDocInfoFactory;
+    private $phpDocInfoFactory;
     public function __construct(ClassInsertManipulator $classInsertManipulator, ValueResolver $valueResolver, PhpDocInfoFactory $phpDocInfoFactory)
     {
         $this->classInsertManipulator = $classInsertManipulator;

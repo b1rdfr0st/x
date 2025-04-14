@@ -26,12 +26,14 @@ class ReplaceWithoutJobsEventsAndNotificationsWithFacadeFakeRector extends Abstr
 $this->withoutJobs();
 $this->withoutEvents();
 $this->withoutNotifications();
-CODE_SAMPLE,
+CODE_SAMPLE
+,
                     <<<'CODE_SAMPLE'
 \Illuminate\Support\Facades\Bus::fake();
 \Illuminate\Support\Facades\Event::fake();
 \Illuminate\Support\Facades\Notification::fake();
-CODE_SAMPLE,
+CODE_SAMPLE
+
                 ),
             ]
         );

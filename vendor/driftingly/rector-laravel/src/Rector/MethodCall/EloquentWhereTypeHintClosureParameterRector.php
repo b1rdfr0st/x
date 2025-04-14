@@ -13,7 +13,6 @@ use PhpParser\Node\Name;
 use PhpParser\Node\Name\FullyQualified;
 use PHPStan\Type\ObjectType;
 use RectorLaravel\AbstractRector;
-use RectorLaravel\NodeAnalyzer\QueryBuilderAnalyzer;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
@@ -22,51 +21,24 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
  */
 class EloquentWhereTypeHintClosureParameterRector extends AbstractRector
 {
-    /**
-     * @readonly
-     */
-    private QueryBuilderAnalyzer $queryBuilderAnalyzer;
-    public function __construct(QueryBuilderAnalyzer $queryBuilderAnalyzer)
-    {
-        $this->queryBuilderAnalyzer = $queryBuilderAnalyzer;
-    }
-
     public function getRuleDefinition(): RuleDefinition
     {
         return new RuleDefinition(
-            'Change typehint of closure parameter in where method of Eloquent or Query Builder',
+            'Change typehint of closure parameter in where method of Eloquent Builder',
             [
                 new CodeSample(
                     <<<'CODE_SAMPLE'
-/** @var \Illuminate\Contracts\Database\Query\Builder $query */
 $query->where(function ($query) {
     $query->where('id', 1);
 });
 CODE_SAMPLE
                     ,
                     <<<'CODE_SAMPLE'
-/** @var \Illuminate\Contracts\Database\Query\Builder $query */
-$query->where(function (\Illuminate\Contracts\Database\Query\Builder $query) {
-    $query->where('id', 1);
-});
-CODE_SAMPLE
-                    ,
-                ),
-                new CodeSample(
-                    <<<'CODE_SAMPLE'
-/** @var \Illuminate\Contracts\Database\Eloquent\Builder $query */
-$query->where(function ($query) {
-    $query->where('id', 1);
-});
-CODE_SAMPLE
-                    ,
-                    <<<'CODE_SAMPLE'
-/** @var \Illuminate\Contracts\Database\Eloquent\Builder $query */
 $query->where(function (\Illuminate\Contracts\Database\Eloquent\Builder $query) {
     $query->where('id', 1);
 });
 CODE_SAMPLE
-                    ,
+                    
                 ),
             ]
         );
@@ -124,15 +96,7 @@ CODE_SAMPLE
             return;
         }
 
-        $classOrVar = $node instanceof MethodCall
-            ? $node->var
-            : $node->class;
-
-        $type = $this->isObjectType($classOrVar, new ObjectType('Illuminate\Database\Eloquent\Model'))
-            ? 'Illuminate\Contracts\Database\Eloquent\Builder'
-            : 'Illuminate\Contracts\Database\Query\Builder';
-
-        $param->type = new FullyQualified($type);
+        $param->type = new FullyQualified('Illuminate\Contracts\Database\Query\Builder');
     }
 
     /**
@@ -140,7 +104,26 @@ CODE_SAMPLE
      */
     private function expectedObjectTypeAndMethodCall($node): bool
     {
-        return $this->queryBuilderAnalyzer->isMatchingCall($node, 'where')
-            || $this->queryBuilderAnalyzer->isMatchingCall($node, 'orWhere');
+        switch (true) {
+            case $node instanceof MethodCall && $this->isObjectType(
+                $node->var,
+                new ObjectType('Illuminate\Contracts\Database\Query\Builder')
+            ):
+                $isMatchingClass = true;
+                break;
+            case $node instanceof StaticCall && $this->isObjectType(
+                $node->class,
+                new ObjectType('Illuminate\Database\Eloquent\Model')
+            ):
+                $isMatchingClass = true;
+                break;
+            default:
+                $isMatchingClass = false;
+                break;
+        }
+
+        $isMatchingMethod = $this->isNames($node->name, ['where', 'orWhere']);
+
+        return $isMatchingClass && $isMatchingMethod;
     }
 }

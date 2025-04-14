@@ -7,7 +7,6 @@ use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Expr\Variable;
-use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Type\ObjectType;
 use Rector\PHPStan\ScopeFetcher;
 use RectorLaravel\AbstractRector;
@@ -20,15 +19,6 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
  */
 final class CarbonSetTestNowToTravelToRector extends AbstractRector
 {
-    /**
-     * @readonly
-     */
-    private ReflectionProvider $reflectionProvider;
-    public function __construct(ReflectionProvider $reflectionProvider)
-    {
-        $this->reflectionProvider = $reflectionProvider;
-    }
-
     /**
      * @throws PoorDocumentationException
      */
@@ -64,7 +54,7 @@ class SomeTest extends TestCase
 }
 CODE_SAMPLE
                 ),
-            ],
+            ]
         );
     }
 
@@ -88,7 +78,7 @@ CODE_SAMPLE
             return null;
         }
 
-        if (! $scope->getClassReflection()->isSubclassOfClass($this->reflectionProvider->getClass('Illuminate\Foundation\Testing\TestCase'))) {
+        if (! $scope->getClassReflection()->isSubclassOf('Illuminate\Foundation\Testing\TestCase')) {
             return null;
         }
 
@@ -107,7 +97,7 @@ CODE_SAMPLE
         return $this->nodeFactory->createMethodCall(
             new Variable('this'),
             'travelTo',
-            $args,
+            $args
         );
     }
 

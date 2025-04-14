@@ -33,7 +33,8 @@ $_REQUEST['value'];
 $_POST;
 $_GET;
 $_REQUEST;
-CODE_SAMPLE,
+CODE_SAMPLE
+,
                     <<<'CODE_SAMPLE'
 \Illuminate\Support\Facades\Request::query('value');
 \Illuminate\Support\Facades\Request::post('value');
@@ -153,7 +154,7 @@ CODE_SAMPLE
 
         return $this->nodeFactory->createStaticCall(
             'Illuminate\Support\Facades\Request',
-            $method,
+            $method
         );
     }
 }

@@ -9,14 +9,11 @@ use PhpParser\Node;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Name;
 use PHPStan\Analyser\Scope;
-use PHPStan\File\FileHelper;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleError;
 use PHPStan\Rules\RuleErrorBuilder;
 
 use function config_path;
-use function count;
-use function is_dir;
 use function str_starts_with;
 
 /**
@@ -27,16 +24,6 @@ use function str_starts_with;
 class NoEnvCallsOutsideOfConfigRule implements Rule
 {
     use HasContainer;
-
-    /** @param  list<non-empty-string> $configDirectories */
-    public function __construct(private array $configDirectories, private FileHelper $fileHelper)
-    {
-        if (count($configDirectories) !== 0) {
-            return;
-        }
-
-        $this->configDirectories = [config_path()]; // @phpstan-ignore-line
-    }
 
     public function getNodeType(): string
     {
@@ -64,25 +51,13 @@ class NoEnvCallsOutsideOfConfigRule implements Rule
             RuleErrorBuilder::message("Called 'env' outside of the config directory which returns null when the config is cached, use 'config'.")
                 ->identifier('larastan.noEnvCallsOutsideOfConfig')
                 ->line($node->getStartLine())
-                ->file($scope->getFile(), $scope->getFileDescription())
+                ->file($scope->getFile())
                 ->build(),
         ];
     }
 
     protected function isCalledOutsideOfConfig(FuncCall $call, Scope $scope): bool
     {
-        foreach ($this->configDirectories as $configDirectory) {
-            $absolutePath = $this->fileHelper->absolutizePath($configDirectory);
-
-            if (! is_dir($absolutePath)) {
-                continue;
-            }
-
-            if (str_starts_with($scope->getFile(), $absolutePath)) {
-                return false;
-            }
-        }
-
-        return true;
+        return str_starts_with($scope->getFile(), config_path()) === false;
     }
 }

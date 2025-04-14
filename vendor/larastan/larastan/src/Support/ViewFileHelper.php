@@ -5,19 +5,16 @@ declare(strict_types=1);
 namespace Larastan\Larastan\Support;
 
 use Generator;
-use Illuminate\Contracts\View\Factory as ViewFactory;
-use Larastan\Larastan\Concerns\HasContainer;
 use PHPStan\File\FileHelper;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RegexIterator;
 
-use function array_merge;
-use function array_values;
 use function count;
 use function explode;
 use function is_dir;
 use function iterator_to_array;
+use function resource_path;
 use function str_contains;
 use function str_replace;
 
@@ -25,8 +22,6 @@ use const DIRECTORY_SEPARATOR;
 
 final class ViewFileHelper
 {
-    use HasContainer;
-
     /** @param  list<non-empty-string> $viewDirectories */
     public function __construct(private array $viewDirectories, private FileHelper $fileHelper)
     {
@@ -34,14 +29,7 @@ final class ViewFileHelper
             return;
         }
 
-        $finder = $this->resolve(ViewFactory::class)->getFinder();
-
-        $viewDirectories = array_merge(
-            $finder->getPaths(),
-            ...array_values($finder->getHints()),
-        );
-
-        $this->viewDirectories = $viewDirectories; // @phpstan-ignore-line
+        $this->viewDirectories = [resource_path('views')]; // @phpstan-ignore-line
     }
 
     public function getAllViewFilePaths(): Generator

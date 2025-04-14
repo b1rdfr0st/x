@@ -8,16 +8,19 @@ final class ServiceNameTypeAndVariableName
 {
     /**
      * @readonly
+     * @var string
      */
-    private string $serviceName;
+    private $serviceName;
     /**
      * @readonly
+     * @var string
      */
-    private string $type;
+    private $type;
     /**
      * @readonly
+     * @var string
      */
-    private string $variableName;
+    private $variableName;
     public function __construct(string $serviceName, string $type, string $variableName)
     {
         $this->serviceName = $serviceName;

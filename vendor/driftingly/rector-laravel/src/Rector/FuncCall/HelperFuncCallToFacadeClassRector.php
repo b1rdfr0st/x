@@ -38,7 +38,7 @@ class SomeClass
 {
     public function run()
     {
-        return \Illuminate\Support\Facades\App::make('translator')->trans('value');
+        return \Illuminate\Support\Facades\App::get('translator')->trans('value');
     }
 }
 CODE_SAMPLE
@@ -59,14 +59,14 @@ CODE_SAMPLE
      */
     public function refactor(Node $node): ?Node
     {
-        if (! $this->isNames($node->name, ['app', 'resolve'])) {
+        if (! $this->isName($node->name, 'app')) {
             return null;
         }
 
-        if (count($node->args) > 0) {
-            return $this->nodeFactory->createStaticCall('Illuminate\Support\Facades\App', 'make', $node->args);
+        if (count($node->args) !== 1) {
+            return null;
         }
 
-        return null;
+        return $this->nodeFactory->createStaticCall('Illuminate\Support\Facades\App', 'get', $node->args);
     }
 }

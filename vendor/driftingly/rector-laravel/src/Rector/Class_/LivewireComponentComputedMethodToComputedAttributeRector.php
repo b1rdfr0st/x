@@ -22,21 +22,13 @@ final class LivewireComponentComputedMethodToComputedAttributeRector extends Abs
 {
     /**
      * @readonly
+     * @var \Rector\Php80\NodeAnalyzer\PhpAttributeAnalyzer
      */
-    private PhpAttributeAnalyzer $phpAttributeAnalyzer;
-    /**
-     * @var string
-     */
+    private $phpAttributeAnalyzer;
     private const COMPUTED_ATTRIBUTE = 'Livewire\Attributes\Computed';
 
-    /**
-     * @var string
-     */
     private const COMPONENT_CLASS = 'Livewire\Component';
 
-    /**
-     * @var string
-     */
     private const METHOD_PATTERN = '/^get(?\'methodName\'[\w]*)Property$/';
 
     public function __construct(PhpAttributeAnalyzer $phpAttributeAnalyzer)
@@ -54,11 +46,12 @@ use Livewire\Component;
 
 class MyComponent extends Component
 {
-    public function getFooBarProperty()
-    {
-    }
+public function getFooBarProperty()
+{
 }
-CODE_SAMPLE,
+}
+CODE_SAMPLE
+,
                     <<<'CODE_SAMPLE'
 use Livewire\Component;
 

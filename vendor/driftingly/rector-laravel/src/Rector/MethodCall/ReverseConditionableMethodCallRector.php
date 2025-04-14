@@ -17,9 +17,6 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
  */
 class ReverseConditionableMethodCallRector extends AbstractRector
 {
-    /**
-     * @var string
-     */
     private const CONDITIONABLE_TRAIT = 'Illuminate\Support\Traits\Conditionable';
 
     public function getRuleDefinition(): RuleDefinition
@@ -29,14 +26,16 @@ class ReverseConditionableMethodCallRector extends AbstractRector
             [
                 new CodeSample(<<<'CODE_SAMPLE'
 $conditionable->when(!$condition, function () {});
-CODE_SAMPLE,
+CODE_SAMPLE
+,
                     <<<'CODE_SAMPLE'
 $conditionable->unless($condition, function () {});
 CODE_SAMPLE
                 ),
                 new CodeSample(<<<'CODE_SAMPLE'
 $conditionable->unless(!$condition, function () {});
-CODE_SAMPLE,
+CODE_SAMPLE
+,
                     <<<'CODE_SAMPLE'
 $conditionable->when($condition, function () {});
 CODE_SAMPLE

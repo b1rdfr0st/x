@@ -35,16 +35,19 @@ final class RouteActionCallableRector extends AbstractRector implements Configur
 {
     /**
      * @readonly
+     * @var \Rector\Reflection\ReflectionResolver
      */
-    private ReflectionResolver $reflectionResolver;
+    private $reflectionResolver;
     /**
      * @readonly
+     * @var \RectorLaravel\NodeFactory\RouterRegisterNodeAnalyzer
      */
-    private RouterRegisterNodeAnalyzer $routerRegisterNodeAnalyzer;
+    private $routerRegisterNodeAnalyzer;
     /**
      * @readonly
+     * @var \Rector\PhpParser\Node\Value\ValueResolver
      */
-    private ValueResolver $valueResolver;
+    private $valueResolver;
     /**
      * @var string
      */
@@ -65,12 +68,15 @@ final class RouteActionCallableRector extends AbstractRector implements Configur
      */
     private const DEFAULT_NAMESPACE = 'App\Http\Controllers';
 
-    private string $namespace = self::DEFAULT_NAMESPACE;
+    /**
+     * @var string
+     */
+    private $namespace = self::DEFAULT_NAMESPACE;
 
     /**
      * @var array<string, string>
      */
-    private array $routes = [];
+    private $routes = [];
 
     public function __construct(ReflectionResolver $reflectionResolver, RouterRegisterNodeAnalyzer $routerRegisterNodeAnalyzer, ValueResolver $valueResolver)
     {
@@ -215,7 +221,9 @@ CODE_SAMPLE
                 $argument = new String_($argValue['middleware']);
             } else {
                 // if any of the elements in the middleware array is not a string, return node as is
-                if (array_filter($argValue['middleware'], static fn ($value) => ! is_string($value)) !== []) {
+                if (array_filter($argValue['middleware'], static function ($value) {
+                    return ! is_string($value);
+                }) !== []) {
                     return $node;
                 }
 
@@ -223,7 +231,9 @@ CODE_SAMPLE
                 $middleware = $argValue['middleware'];
 
                 $argument = new Array_(array_map(
-                    static fn ($value) => new ArrayItem(new String_($value)),
+                    static function ($value) {
+                        return new ArrayItem(new String_($value));
+                    },
                     $middleware
                 ));
             }

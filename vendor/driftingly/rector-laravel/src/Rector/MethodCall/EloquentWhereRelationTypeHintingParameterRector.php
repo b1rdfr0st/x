@@ -11,8 +11,8 @@ use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name;
 use PhpParser\Node\Name\FullyQualified;
+use PHPStan\Type\ObjectType;
 use RectorLaravel\AbstractRector;
-use RectorLaravel\NodeAnalyzer\QueryBuilderAnalyzer;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
@@ -21,29 +21,6 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
  */
 class EloquentWhereRelationTypeHintingParameterRector extends AbstractRector
 {
-    /**
-     * @readonly
-     */
-    private QueryBuilderAnalyzer $queryBuilderAnalyzer;
-    /**
-     * @var string[]
-     */
-    private const METHODS = [
-        'whereHas',
-        'orWhereHas',
-        'whereDoesntHave',
-        'orWhereDoesntHave',
-        'whereHasMorph',
-        'orWhereHasMorph',
-        'whereDoesntHaveMorph',
-        'orWhereDoesntHaveMorph',
-    ];
-
-    public function __construct(QueryBuilderAnalyzer $queryBuilderAnalyzer)
-    {
-        $this->queryBuilderAnalyzer = $queryBuilderAnalyzer;
-    }
-
     public function getRuleDefinition(): RuleDefinition
     {
         return new RuleDefinition(
@@ -145,12 +122,38 @@ CODE_SAMPLE
      */
     private function expectedObjectTypeAndMethodCall($node): bool
     {
-        foreach (self::METHODS as $method) {
-            if ($this->queryBuilderAnalyzer->isMatchingCall($node, $method)) {
-                return true;
-            }
+        switch (true) {
+            case $node instanceof MethodCall && $this->isObjectType(
+                $node->var,
+                new ObjectType('Illuminate\Contracts\Database\Query\Builder')
+            ):
+                $isMatchingClass = true;
+                break;
+            case $node instanceof StaticCall && $this->isObjectType(
+                $node->class,
+                new ObjectType('Illuminate\Database\Eloquent\Model')
+            ):
+                $isMatchingClass = true;
+                break;
+            default:
+                $isMatchingClass = false;
+                break;
         }
 
-        return false;
+        $isMatchingMethod = $this->isNames(
+            $node->name,
+            [
+                'whereHas',
+                'orWhereHas',
+                'whereDoesntHave',
+                'orWhereDoesntHave',
+                'whereHasMorph',
+                'orWhereHasMorph',
+                'whereDoesntHaveMorph',
+                'orWhereDoesntHaveMorph',
+            ]
+        );
+
+        return $isMatchingClass && $isMatchingMethod;
     }
 }

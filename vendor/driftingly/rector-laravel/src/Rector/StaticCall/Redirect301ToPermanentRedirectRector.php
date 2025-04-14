@@ -23,12 +23,13 @@ final class Redirect301ToPermanentRedirectRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \Rector\PhpParser\Node\Value\ValueResolver
      */
-    private ValueResolver $valueResolver;
+    private $valueResolver;
     /**
      * @var ObjectType[]
      */
-    private array $routerObjectTypes = [];
+    private $routerObjectTypes = [];
 
     public function __construct(
         ValueResolver $valueResolver

@@ -24,8 +24,9 @@ final class AnonymousMigrationsRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \Rector\NodeAnalyzer\ClassAnalyzer
      */
-    private ClassAnalyzer $classAnalyzer;
+    private $classAnalyzer;
     public function __construct(ClassAnalyzer $classAnalyzer)
     {
         $this->classAnalyzer = $classAnalyzer;

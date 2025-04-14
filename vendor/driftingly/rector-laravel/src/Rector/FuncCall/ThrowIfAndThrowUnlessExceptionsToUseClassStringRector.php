@@ -23,10 +23,12 @@ class ThrowIfAndThrowUnlessExceptionsToUseClassStringRector extends AbstractRect
             new CodeSample(
                 <<<'CODE_SAMPLE'
 throw_if($condition, new MyException('custom message'));
-CODE_SAMPLE,
+CODE_SAMPLE
+,
                 <<<'CODE_SAMPLE'
 throw_if($condition, MyException::class, 'custom message');
-CODE_SAMPLE,
+CODE_SAMPLE
+
             ),
         ]);
     }

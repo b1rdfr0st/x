@@ -19,7 +19,6 @@ parameters:
     databaseMigrationsPath: []
     disableMigrationScan: false
     disableSchemaScan: false
-    configDirectories: []
     viewDirectories: []
     checkModelProperties: false
     checkUnusedViews: false
@@ -34,7 +33,6 @@ parametersSchema:
     noUnnecessaryCollectionCallExcept: listOf(string())
     databaseMigrationsPath: listOf(string())
     disableMigrationScan: bool()
-    configDirectories: listOf(string())
     viewDirectories: listOf(string())
     squashedMigrationsPath: listOf(string())
     disableSchemaScan: bool()
@@ -222,6 +220,11 @@ services:
             - phpstan.broker.dynamicMethodReturnTypeExtension
 
     -
+        class: Larastan\Larastan\ReturnTypes\RelationFindExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
         class: Larastan\Larastan\ReturnTypes\RelationCollectionExtension
         tags:
             - phpstan.broker.dynamicMethodReturnTypeExtension
@@ -366,8 +369,6 @@ services:
 
     -
         class: Larastan\Larastan\Rules\NoEnvCallsOutsideOfConfigRule
-        arguments:
-            configDirectories: %configDirectories%
 
     -
         class: Larastan\Larastan\Rules\NoModelMakeRule

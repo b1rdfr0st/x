@@ -1,4 +1,4 @@
-# 79 Rules Overview
+# 77 Rules Overview
 
 ## AbortIfRector
 
@@ -133,7 +133,7 @@ Add "$this->mockConsoleOutput = false"; to console tests that work with output c
 
  final class SomeTest extends TestCase
  {
-+    protected function setUp(): void
++    public function setUp(): void
 +    {
 +        parent::setUp();
 +
@@ -333,21 +333,6 @@ Replace `(new \Illuminate\Testing\TestResponse)->assertStatus(200)` with `(new \
 
 <br>
 
-## AssertWithClassStringToTypeHintedClosureRector
-
-Changes assert calls to use a type hinted closure.
-
-- class: [`RectorLaravel\Rector\StaticCall\AssertWithClassStringToTypeHintedClosureRector`](../src/Rector/StaticCall/AssertWithClassStringToTypeHintedClosureRector.php)
-
-```diff
--Bus::assertDispatched(OrderCreated::class, function ($job) {
-+Bus::assertDispatched(function (OrderCreated $job) {
-     return true;
- });
-```
-
-<br>
-
 ## AvoidNegatedCollectionContainsOrDoesntContainRector
 
 Convert negated calls to `contains` to `doesntContain`, or vice versa.
@@ -459,7 +444,7 @@ Renames the Billable `stripeOptions()` to `stripe().`
 
 ## ChangeQueryWhereDateValueWithCarbonRector
 
-Refactor `whereDate()` queries to include both date and time comparisons with Carbon
+Add `parent::boot();` call to `boot()` class method in child of `Illuminate\Database\Eloquent\Model`
 
 - class: [`RectorLaravel\Rector\MethodCall\ChangeQueryWhereDateValueWithCarbonRector`](../src/Rector/MethodCall/ChangeQueryWhereDateValueWithCarbonRector.php)
 
@@ -615,22 +600,11 @@ Add type hinting to where relation has methods e.g. `whereHas`, `orWhereHas`, `w
 
 ## EloquentWhereTypeHintClosureParameterRector
 
-Change typehint of closure parameter in where method of Eloquent or Query Builder
+Change typehint of closure parameter in where method of Eloquent Builder
 
 - class: [`RectorLaravel\Rector\MethodCall\EloquentWhereTypeHintClosureParameterRector`](../src/Rector/MethodCall/EloquentWhereTypeHintClosureParameterRector.php)
 
 ```diff
- /** @var \Illuminate\Contracts\Database\Query\Builder $query */
--$query->where(function ($query) {
-+$query->where(function (\Illuminate\Contracts\Database\Query\Builder $query) {
-     $query->where('id', 1);
- });
-```
-
-<br>
-
-```diff
- /** @var \Illuminate\Contracts\Database\Eloquent\Builder $query */
 -$query->where(function ($query) {
 +$query->where(function (\Illuminate\Contracts\Database\Eloquent\Builder $query) {
      $query->where('id', 1);
@@ -737,7 +711,7 @@ Change `app()` func calls to facade calls
      public function run()
      {
 -        return app('translator')->trans('value');
-+        return \Illuminate\Support\Facades\App::make('translator')->trans('value');
++        return \Illuminate\Support\Facades\App::get('translator')->trans('value');
      }
  }
 ```
@@ -1161,16 +1135,14 @@ Replace expectJobs and expectEvents methods in tests
      {
 -        $this->expectsJobs([\App\Jobs\SomeJob::class, \App\Jobs\SomeOtherJob::class]);
 -        $this->expectsEvents(\App\Events\SomeEvent::class);
--        $this->doesntExpectEvents(\App\Events\SomeOtherEvent::class);
 +        \Illuminate\Support\Facades\Bus::fake([\App\Jobs\SomeJob::class, \App\Jobs\SomeOtherJob::class]);
-+        \Illuminate\Support\Facades\Event::fake([\App\Events\SomeEvent::class, \App\Events\SomeOtherEvent::class]);
++        \Illuminate\Support\Facades\Event::fake([\App\Events\SomeEvent::class]);
 
          $this->get('/');
 +
 +        \Illuminate\Support\Facades\Bus::assertDispatched(\App\Jobs\SomeJob::class);
 +        \Illuminate\Support\Facades\Bus::assertDispatched(\App\Jobs\SomeOtherJob::class);
 +        \Illuminate\Support\Facades\Event::assertDispatched(\App\Events\SomeEvent::class);
-+        \Illuminate\Support\Facades\Event::assertNotDispatched(\App\Events\SomeOtherEvent::class);
      }
  }
 ```
@@ -1347,26 +1319,6 @@ Use PHP callable syntax instead of string syntax for controller route declaratio
 -    Route::get('/users', 'UserController@index');
 +    Route::get('/users', [\App\Http\Controllers\Admin\UserController::class, 'index']);
  })
-```
-
-<br>
-
-## ScopeNamedClassMethodToScopeAttributedClassMethodRector
-
-Changes model scope methods to use the scope attribute
-
-- class: [`RectorLaravel\Rector\ClassMethod\ScopeNamedClassMethodToScopeAttributedClassMethodRector`](../src/Rector/ClassMethod/ScopeNamedClassMethodToScopeAttributedClassMethodRector.php)
-
-```diff
- class User extends Model
- {
--    public function scopeActive($query)
-+    #[\Illuminate\Database\Eloquent\Attributes\Scope]
-+    public function active($query)
-     {
-         return $query->where('active', 1);
-     }
- }
 ```
 
 <br>

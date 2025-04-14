@@ -30,16 +30,18 @@ final class ArgumentFuncCallToMethodCallRector extends AbstractRector implements
 {
     /**
      * @readonly
+     * @var \Rector\NodeTypeResolver\TypeAnalyzer\ArrayTypeAnalyzer
      */
-    private ArrayTypeAnalyzer $arrayTypeAnalyzer;
+    private $arrayTypeAnalyzer;
     /**
      * @readonly
+     * @var \Rector\Transform\NodeAnalyzer\FuncCallStaticCallToMethodCallAnalyzer
      */
-    private FuncCallStaticCallToMethodCallAnalyzer $funcCallStaticCallToMethodCallAnalyzer;
+    private $funcCallStaticCallToMethodCallAnalyzer;
     /**
      * @var ArgumentFuncCallToMethodCallInterface[]
      */
-    private array $argumentFuncCallToMethodCalls = [];
+    private $argumentFuncCallToMethodCalls = [];
 
     public function __construct(ArrayTypeAnalyzer $arrayTypeAnalyzer, FuncCallStaticCallToMethodCallAnalyzer $funcCallStaticCallToMethodCallAnalyzer)
     {
@@ -131,7 +133,7 @@ CODE_SAMPLE
                         $expr = $this->funcCallStaticCallToMethodCallAnalyzer->matchTypeProvidingExpr(
                             $class,
                             $classMethod,
-                            new ObjectType($argumentFuncCallToMethodCall->getClass()),
+                            new ObjectType($argumentFuncCallToMethodCall->getClass())
                         );
 
                         $hasChanged = true;
@@ -143,7 +145,7 @@ CODE_SAMPLE
                         $expr = $this->funcCallStaticCallToMethodCallAnalyzer->matchTypeProvidingExpr(
                             $class,
                             $classMethod,
-                            new ObjectType($argumentFuncCallToMethodCall->getClass()),
+                            new ObjectType($argumentFuncCallToMethodCall->getClass())
                         );
 
                         $hasChanged = true;

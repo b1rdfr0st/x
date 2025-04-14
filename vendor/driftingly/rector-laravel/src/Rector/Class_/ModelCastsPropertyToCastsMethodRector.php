@@ -23,9 +23,18 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
  */
 class ModelCastsPropertyToCastsMethodRector extends AbstractRector
 {
-    protected BuilderFactory $builderFactory;
-    protected PhpDocInfoFactory $phpDocInfoFactory;
-    protected DocBlockUpdater $docBlockUpdater;
+    /**
+     * @var \PhpParser\BuilderFactory
+     */
+    protected $builderFactory;
+    /**
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     */
+    protected $phpDocInfoFactory;
+    /**
+     * @var \Rector\Comments\NodeDocBlock\DocBlockUpdater
+     */
+    protected $docBlockUpdater;
     public function __construct(BuilderFactory $builderFactory, PhpDocInfoFactory $phpDocInfoFactory, DocBlockUpdater $docBlockUpdater)
     {
         $this->builderFactory = $builderFactory;
@@ -42,24 +51,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
 {
-    protected $casts = [
-        'age' => 'integer',
-    ];
+protected $casts = [
+'age' => 'integer',
+];
 }
-CODE_SAMPLE,
+CODE_SAMPLE
+,
                 <<<'CODE_SAMPLE'
 use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
 {
-    protected function casts(): array
-    {
-        return [
-            'age' => 'integer',
-        ];
-    }
+protected function casts(): array
+{
+return [
+'age' => 'integer',
+];
 }
-CODE_SAMPLE,
+}
+CODE_SAMPLE
+
             ),
         ]);
     }

@@ -8,7 +8,6 @@ use PhpParser\Node;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Expression;
 use PHPStan\Reflection\ClassReflection;
-use PHPStan\Reflection\ReflectionProvider;
 use Rector\Reflection\ReflectionResolver;
 use RectorLaravel\AbstractRector;
 use RectorLaravel\NodeAnalyzer\StaticCallAnalyzer;
@@ -24,26 +23,23 @@ final class AddParentRegisterToEventServiceProviderRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \RectorLaravel\NodeAnalyzer\StaticCallAnalyzer
      */
-    private StaticCallAnalyzer $staticCallAnalyzer;
+    private $staticCallAnalyzer;
     /**
      * @readonly
+     * @var \Rector\Reflection\ReflectionResolver
      */
-    private ReflectionResolver $reflectionResolver;
-    /**
-     * @readonly
-     */
-    private ReflectionProvider $reflectionProvider;
+    private $reflectionResolver;
     /**
      * @var string
      */
     private const REGISTER = 'register';
 
-    public function __construct(StaticCallAnalyzer $staticCallAnalyzer, ReflectionResolver $reflectionResolver, ReflectionProvider $reflectionProvider)
+    public function __construct(StaticCallAnalyzer $staticCallAnalyzer, ReflectionResolver $reflectionResolver)
     {
         $this->staticCallAnalyzer = $staticCallAnalyzer;
         $this->reflectionResolver = $reflectionResolver;
-        $this->reflectionProvider = $reflectionProvider;
     }
 
     public function getRuleDefinition(): RuleDefinition
@@ -99,7 +95,7 @@ CODE_SAMPLE
             return null;
         }
 
-        if (! $classReflection->isSubclassOfClass($this->reflectionProvider->getClass('Illuminate\Foundation\Support\Providers\EventServiceProvider'))) {
+        if (! $classReflection->isSubclassOf('Illuminate\Foundation\Support\Providers\EventServiceProvider')) {
             return null;
         }
 

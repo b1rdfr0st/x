@@ -8,16 +8,19 @@ final class ApplyDefaultInsteadOfNullCoalesce
 {
     /**
      * @readonly
+     * @var string
      */
-    private string $methodName;
+    private $methodName;
     /**
      * @readonly
+     * @var \PHPStan\Type\ObjectType|null
      */
-    private ?ObjectType $objectType = null;
+    private $objectType;
     /**
      * @readonly
+     * @var int
      */
-    private int $argumentPosition = 1;
+    private $argumentPosition = 1;
     public function __construct(string $methodName, ?ObjectType $objectType = null, int $argumentPosition = 1)
     {
         $this->methodName = $methodName;

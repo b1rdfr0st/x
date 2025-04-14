@@ -24,8 +24,9 @@ final class PropertyDeferToDeferrableProviderToRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \Rector\PhpParser\Node\Value\ValueResolver
      */
-    private ValueResolver $valueResolver;
+    private $valueResolver;
     public function __construct(ValueResolver $valueResolver)
     {
         $this->valueResolver = $valueResolver;

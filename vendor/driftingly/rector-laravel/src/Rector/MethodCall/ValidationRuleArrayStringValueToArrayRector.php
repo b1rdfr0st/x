@@ -72,7 +72,9 @@ CODE_SAMPLE
             if ($item instanceof ArrayItem && $item->value instanceof String_) {
                 $stringRules = $item->value->value;
                 $arrayRules = explode('|', $stringRules);
-                $item->value = new Array_(array_map(static fn ($rule) => new ArrayItem(new String_($rule)), $arrayRules));
+                $item->value = new Array_(array_map(static function ($rule) {
+                    return new ArrayItem(new String_($rule));
+                }, $arrayRules));
                 $changed = true;
             }
         }

@@ -29,7 +29,7 @@ final class AddArgumentDefaultValueRector extends AbstractRector implements Conf
     /**
      * @var AddArgumentDefaultValue[]
      */
-    private array $addedArguments = [];
+    private $addedArguments = [];
 
     public function getRuleDefinition(): RuleDefinition
     {

@@ -29,8 +29,9 @@ final class ChangeQueryWhereDateValueWithCarbonRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \Rector\PhpParser\Node\Value\ValueResolver
      */
-    private ValueResolver $valueResolver;
+    private $valueResolver;
     public function __construct(ValueResolver $valueResolver)
     {
         $this->valueResolver = $valueResolver;
@@ -39,7 +40,7 @@ final class ChangeQueryWhereDateValueWithCarbonRector extends AbstractRector
     public function getRuleDefinition(): RuleDefinition
     {
         return new RuleDefinition(
-            'Refactor whereDate() queries to include both date and time comparisons with Carbon',
+            'Add parent::boot(); call to boot() class method in child of Illuminate\Database\Eloquent\Model',
             [
                 new CodeSample(
                     <<<'CODE_SAMPLE'

@@ -24,8 +24,9 @@ final class DispatchToHelperFunctionsRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \PHPStan\Reflection\ReflectionProvider
      */
-    private ReflectionProvider $reflectionProvider;
+    private $reflectionProvider;
     public function __construct(ReflectionProvider $reflectionProvider)
     {
         $this->reflectionProvider = $reflectionProvider;
@@ -47,7 +48,7 @@ final class DispatchToHelperFunctionsRector extends AbstractRector
                     'ExampleJob::dispatch($email);',
                     'dispatch(new ExampleJob($email));'
                 ),
-            ],
+            ]
         );
     }
 
@@ -137,7 +138,7 @@ final class DispatchToHelperFunctionsRector extends AbstractRector
             new Name($method),
             [
                 new Arg(new New_(new FullyQualified($class), $staticCall->args)),
-            ],
+            ]
         );
     }
 }

@@ -27,7 +27,7 @@ final class Facades implements PipeContract
 
         $found = false;
 
-        if ($classReflection->is(Facade::class)) {
+        if ($classReflection->isSubclassOf(Facade::class)) {
             $facadeClass = $classReflection->getName();
 
             if (ReflectionHelper::hasMethodTag($classReflection, $passable->getMethodName())) {

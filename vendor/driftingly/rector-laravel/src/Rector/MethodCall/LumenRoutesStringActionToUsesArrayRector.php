@@ -22,8 +22,9 @@ final class LumenRoutesStringActionToUsesArrayRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \RectorLaravel\NodeAnalyzer\LumenRouteRegisteringMethodAnalyzer
      */
-    private LumenRouteRegisteringMethodAnalyzer $lumenRouteRegisteringMethodAnalyzer;
+    private $lumenRouteRegisteringMethodAnalyzer;
     public function __construct(LumenRouteRegisteringMethodAnalyzer $lumenRouteRegisteringMethodAnalyzer)
     {
         $this->lumenRouteRegisteringMethodAnalyzer = $lumenRouteRegisteringMethodAnalyzer;
@@ -38,7 +39,8 @@ $router->get('/user', 'UserController@get');
 CODE_SAMPLE
                 , <<<'CODE_SAMPLE'
 $router->get('/user', ['uses => 'UserController@get']);
-CODE_SAMPLE)]
+CODE_SAMPLE
+)]
         );
     }
 

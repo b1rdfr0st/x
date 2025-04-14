@@ -3,24 +3,31 @@
 namespace Illuminate\Contracts\Pagination;
 
 /**
- * @template TKey of array-key
- * @template TValue
+ * @template TItem
  */
 interface Paginator
-{}
+{
+    /**
+     * @return array<TItem>
+     */
+    public function items(): array;
+}
 
 /**
- * @template TKey of array-key
- * @template TValue
+ * @template TItem
  *
- * @extends Paginator<TKey, TValue>
+ * @extends Paginator<TItem>
  */
 interface LengthAwarePaginator extends Paginator
 {}
 
 /**
- * @template TKey of array-key
- * @template TValue
+ * @template TItem
  */
 interface CursorPaginator
-{}
+{
+    /**
+     * @return array<TItem>
+     */
+    public function items(): array;
+}

@@ -10,16 +10,19 @@ final class TypeToTimeMethodAndPosition
 {
     /**
      * @readonly
+     * @var string
      */
-    private string $type;
+    private $type;
     /**
      * @readonly
+     * @var string
      */
-    private string $methodName;
+    private $methodName;
     /**
      * @readonly
+     * @var int
      */
-    private int $position;
+    private $position;
     public function __construct(string $type, string $methodName, int $position)
     {
         $this->type = $type;

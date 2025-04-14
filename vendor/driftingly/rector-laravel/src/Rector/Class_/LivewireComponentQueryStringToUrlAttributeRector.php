@@ -27,21 +27,13 @@ final class LivewireComponentQueryStringToUrlAttributeRector extends AbstractRec
 {
     /**
      * @readonly
+     * @var \Rector\Php80\NodeAnalyzer\PhpAttributeAnalyzer
      */
-    private PhpAttributeAnalyzer $phpAttributeAnalyzer;
-    /**
-     * @var string
-     */
+    private $phpAttributeAnalyzer;
     private const URL_ATTRIBUTE = 'Livewire\Attributes\Url';
 
-    /**
-     * @var string
-     */
     private const COMPONENT_CLASS = 'Livewire\Component';
 
-    /**
-     * @var string
-     */
     private const QUERY_STRING_PROPERTY_NAME = 'queryString';
 
     public function __construct(PhpAttributeAnalyzer $phpAttributeAnalyzer)
@@ -59,16 +51,17 @@ use Livewire\Component;
 
 class MyComponent extends Component
 {
-    public string $something = '';
+public string $something = '';
 
-    public string $another = '';
+public string $another = '';
 
-    protected $queryString = [
-        'something',
-        'another',
-    ];
+protected $queryString = [
+'something',
+'another',
+];
 }
-CODE_SAMPLE,
+CODE_SAMPLE
+,
                     <<<'CODE_SAMPLE'
 use Livewire\Component;
 
@@ -187,7 +180,9 @@ CODE_SAMPLE
         // we remove the array properties which will be converted
         $array->items = array_filter(
             $array->items,
-            fn (?ArrayItem $arrayItem): bool => ! in_array($arrayItem, $toFilter, true),
+            function (?ArrayItem $arrayItem) use ($toFilter): bool {
+                return ! in_array($arrayItem, $toFilter, true);
+            }
         );
 
         return $properties;
@@ -237,7 +232,9 @@ CODE_SAMPLE
         $array = $property->props[0]->default;
 
         if ($array instanceof Array_ && $array->items === []) {
-            $class->stmts = array_filter($class->stmts, fn (Node $node) => $node !== $property);
+            $class->stmts = array_filter($class->stmts, function (Node $node) use ($property) {
+                return $node !== $property;
+            });
         }
     }
 }

@@ -10,16 +10,19 @@ final class AddArgumentDefaultValue
 {
     /**
      * @readonly
+     * @var string
      */
-    private string $class;
+    private $class;
     /**
      * @readonly
+     * @var string
      */
-    private string $method;
+    private $method;
     /**
      * @readonly
+     * @var int
      */
-    private int $position;
+    private $position;
     /**
      * @readonly
      * @var mixed

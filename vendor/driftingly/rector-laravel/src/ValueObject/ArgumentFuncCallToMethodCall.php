@@ -11,20 +11,24 @@ final class ArgumentFuncCallToMethodCall implements ArgumentFuncCallToMethodCall
 {
     /**
      * @readonly
+     * @var string
      */
-    private string $function;
+    private $function;
     /**
      * @readonly
+     * @var string
      */
-    private string $class;
+    private $class;
     /**
      * @readonly
+     * @var string|null
      */
-    private ?string $methodIfArgs = null;
+    private $methodIfArgs;
     /**
      * @readonly
+     * @var string|null
      */
-    private ?string $methodIfNoArgs = null;
+    private $methodIfNoArgs;
     public function __construct(
         string $function,
         string $class,

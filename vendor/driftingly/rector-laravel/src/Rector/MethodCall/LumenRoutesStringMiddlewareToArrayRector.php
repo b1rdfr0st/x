@@ -21,8 +21,9 @@ final class LumenRoutesStringMiddlewareToArrayRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \RectorLaravel\NodeAnalyzer\LumenRouteRegisteringMethodAnalyzer
      */
-    private LumenRouteRegisteringMethodAnalyzer $lumenRouteRegisteringMethodAnalyzer;
+    private $lumenRouteRegisteringMethodAnalyzer;
     public function __construct(LumenRouteRegisteringMethodAnalyzer $lumenRouteRegisteringMethodAnalyzer)
     {
         $this->lumenRouteRegisteringMethodAnalyzer = $lumenRouteRegisteringMethodAnalyzer;
@@ -39,7 +40,8 @@ CODE_SAMPLE
                 , <<<'CODE_SAMPLE'
 $router->get('/user', ['middleware => ['test']]);
 $router->post('/user', ['middleware => ['test', 'authentication']]);
-CODE_SAMPLE)]
+CODE_SAMPLE
+)]
         );
     }
 

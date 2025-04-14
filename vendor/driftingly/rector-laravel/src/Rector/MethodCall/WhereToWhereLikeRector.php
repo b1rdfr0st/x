@@ -39,7 +39,10 @@ final class WhereToWhereLikeRector extends AbstractRector implements Configurabl
         'orwhere' => 'orWhereLike',
     ];
 
-    private bool $usingPostgresDriver = false;
+    /**
+     * @var bool
+     */
+    private $usingPostgresDriver = false;
 
     public function getRuleDefinition(): RuleDefinition
     {

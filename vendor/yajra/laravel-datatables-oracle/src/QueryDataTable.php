@@ -80,13 +80,6 @@ class QueryDataTable extends DataTableAbstract
      */
     protected bool $disableUserOrdering = false;
 
-    /**
-     * Paginated results.
-     *
-     * @var Collection<int, \stdClass>
-     */
-    protected Collection $results;
-
     public function __construct(protected QueryBuilder $query)
     {
         $this->request = app('datatables.request');
@@ -137,11 +130,11 @@ class QueryDataTable extends DataTableAbstract
     /**
      * Get paginated results.
      *
-     * @return Collection<int, \stdClass>
+     * @return \Illuminate\Support\Collection<int, \stdClass>
      */
     public function results(): Collection
     {
-        return $this->results ??= $this->query->get();
+        return $this->query->get();
     }
 
     /**

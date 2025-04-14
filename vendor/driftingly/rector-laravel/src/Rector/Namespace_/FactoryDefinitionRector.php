@@ -33,8 +33,9 @@ final class FactoryDefinitionRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \RectorLaravel\NodeFactory\ModelFactoryNodeFactory
      */
-    private ModelFactoryNodeFactory $modelFactoryNodeFactory;
+    private $modelFactoryNodeFactory;
     public function __construct(ModelFactoryNodeFactory $modelFactoryNodeFactory)
     {
         $this->modelFactoryNodeFactory = $modelFactoryNodeFactory;

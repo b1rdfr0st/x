@@ -28,20 +28,23 @@ final class CallOnAppArrayAccessToStandaloneAssignRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \RectorLaravel\NodeFactory\AppAssignFactory
      */
-    private AppAssignFactory $appAssignFactory;
+    private $appAssignFactory;
     /**
      * @readonly
+     * @var \Rector\Comments\NodeDocBlock\DocBlockUpdater
      */
-    private DocBlockUpdater $docBlockUpdater;
+    private $docBlockUpdater;
     /**
      * @readonly
+     * @var \Rector\PhpParser\Node\Value\ValueResolver
      */
-    private ValueResolver $valueResolver;
+    private $valueResolver;
     /**
      * @var ServiceNameTypeAndVariableName[]
      */
-    private array $serviceNameTypeAndVariableNames = [];
+    private $serviceNameTypeAndVariableNames = [];
 
     public function __construct(
         AppAssignFactory $appAssignFactory,

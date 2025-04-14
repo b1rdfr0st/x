@@ -83,10 +83,10 @@ class MacroMethodsClassReflectionExtension implements MethodsClassReflectionExte
             $classNames         = [$classReflection->getName()];
             $macroTraitProperty = 'macros';
 
-            if ($classReflection->is(Builder::class)) {
+            if ($classReflection->isSubclassOf(Builder::class)) {
                 $classNames[] = Builder::class;
             }
-        } elseif ($classReflection->is(Facade::class)) {
+        } elseif ($classReflection->isSubclassOf(Facade::class)) {
             $facadeClass = $classReflection->getName();
 
             if ($facadeClass === Auth::class) {

@@ -34,8 +34,9 @@ final class MigrateToSimplifiedAttributeRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \Rector\PhpParser\Node\BetterNodeFinder
      */
-    private BetterNodeFinder $betterNodeFinder;
+    private $betterNodeFinder;
     public function __construct(BetterNodeFinder $betterNodeFinder)
     {
         $this->betterNodeFinder = $betterNodeFinder;

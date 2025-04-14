@@ -35,24 +35,29 @@ final class AddMockConsoleOutputFalseToConsoleTestsRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \Rector\NodeAnalyzer\PropertyFetchAnalyzer
      */
-    private PropertyFetchAnalyzer $propertyFetchAnalyzer;
+    private $propertyFetchAnalyzer;
     /**
      * @readonly
+     * @var \Rector\PHPUnit\NodeAnalyzer\SetUpMethodDecorator
      */
-    private SetUpMethodDecorator $setUpMethodDecorator;
+    private $setUpMethodDecorator;
     /**
      * @readonly
+     * @var \Rector\Privatization\NodeManipulator\VisibilityManipulator
      */
-    private VisibilityManipulator $visibilityManipulator;
+    private $visibilityManipulator;
     /**
      * @readonly
+     * @var \Rector\PhpParser\Node\BetterNodeFinder
      */
-    private BetterNodeFinder $betterNodeFinder;
+    private $betterNodeFinder;
     /**
      * @readonly
+     * @var \Rector\PhpParser\Node\Value\ValueResolver
      */
-    private ValueResolver $valueResolver;
+    private $valueResolver;
     public function __construct(PropertyFetchAnalyzer $propertyFetchAnalyzer, SetUpMethodDecorator $setUpMethodDecorator, VisibilityManipulator $visibilityManipulator, BetterNodeFinder $betterNodeFinder, ValueResolver $valueResolver)
     {
         $this->propertyFetchAnalyzer = $propertyFetchAnalyzer;
@@ -88,7 +93,7 @@ use Illuminate\Foundation\Testing\TestCase;
 
 final class SomeTest extends TestCase
 {
-    protected function setUp(): void
+    public function setUp(): void
     {
         parent::setUp();
 

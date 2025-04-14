@@ -36,8 +36,9 @@ final class OptionalToNullsafeOperatorRector extends AbstractRector implements C
 {
     /**
      * @readonly
+     * @var \Rector\PhpParser\Node\Value\ValueResolver
      */
-    private ValueResolver $valueResolver;
+    private $valueResolver;
     /**
      * @var string
      */
@@ -51,7 +52,7 @@ final class OptionalToNullsafeOperatorRector extends AbstractRector implements C
     /**
      * @var string[]
      */
-    private array $excludeMethods = [];
+    private $excludeMethods = [];
 
     public function __construct(ValueResolver $valueResolver)
     {

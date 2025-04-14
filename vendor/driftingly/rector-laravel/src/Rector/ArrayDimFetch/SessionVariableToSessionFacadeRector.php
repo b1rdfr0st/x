@@ -38,7 +38,8 @@ session_destroy();
 session_start();
 unset($_SESSION['key']);
 isset($_SESSION['key'])
-CODE_SAMPLE,
+CODE_SAMPLE
+,
                 <<<'CODE_SAMPLE'
 \Illuminate\Support\Facades\Session::get('key');
 \Illuminate\Support\Facades\Session::put('key', 'value');

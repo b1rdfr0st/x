@@ -9,9 +9,6 @@ use RectorLaravel\Set\Packages\Livewire\LivewireSetList;
 
 final class LaravelSetProvider implements SetProviderInterface
 {
-    /**
-     * @var string
-     */
     private const GROUP_NAME = 'laravel';
 
     /**
@@ -33,7 +30,6 @@ final class LaravelSetProvider implements SetProviderInterface
      * @var string[]
      */
     private const LARAVEL_POST_FIVE = [
-        LaravelSetList::LARAVEL_120,
         LaravelSetList::LARAVEL_110,
         LaravelSetList::LARAVEL_100,
         LaravelSetList::LARAVEL_90,
@@ -54,19 +50,19 @@ final class LaravelSetProvider implements SetProviderInterface
         ), new Set(
             self::GROUP_NAME,
             'Collection improvements and simplifications',
-            LaravelSetList::LARAVEL_COLLECTION,
+            LaravelSetList::LARAVEL_COLLECTION
         ), new Set(
             self::GROUP_NAME,
             'Container array access to method calls',
-            LaravelSetList::LARAVEL_ARRAYACCESS_TO_METHOD_CALL,
+            LaravelSetList::LARAVEL_ARRAYACCESS_TO_METHOD_CALL
         ), new Set(
             self::GROUP_NAME,
             'Container strings to FQN types',
-            LaravelSetList::LARAVEL_CONTAINER_STRING_TO_FULLY_QUALIFIED_NAME,
+            LaravelSetList::LARAVEL_CONTAINER_STRING_TO_FULLY_QUALIFIED_NAME
         ), new Set(
             self::GROUP_NAME,
             'Rename Aliases to FQN Classes',
-            LaravelSetList::LARAVEL_FACADE_ALIASES_TO_FULL_NAMES,
+            LaravelSetList::LARAVEL_FACADE_ALIASES_TO_FULL_NAMES
         ), new Set(
             self::GROUP_NAME,
             'Replace array/str functions with static calls',
@@ -74,23 +70,23 @@ final class LaravelSetProvider implements SetProviderInterface
         ), new Set(
             self::GROUP_NAME,
             'Replace If statements with helpers',
-            LaravelSetList::LARAVEL_IF_HELPERS,
+            LaravelSetList::LARAVEL_IF_HELPERS
         ), new Set(
             self::GROUP_NAME,
             'Replace facades with service injection',
-            LaravelSetList::LARAVEL_STATIC_TO_INJECTION,
+            LaravelSetList::LARAVEL_STATIC_TO_INJECTION
         ), new Set(
             self::GROUP_NAME,
             'Replace Magic Methods with Query Builder',
-            LaravelSetList::LARAVEL_ELOQUENT_MAGIC_METHOD_TO_QUERY_BUILDER,
+            LaravelSetList::LARAVEL_ELOQUENT_MAGIC_METHOD_TO_QUERY_BUILDER
         ), new Set(
             self::GROUP_NAME,
             'Upgrade Legacy Factories to Modern Factories',
-            LaravelSetList::LARAVEL_LEGACY_FACTORIES_TO_CLASSES,
+            LaravelSetList::LARAVEL_LEGACY_FACTORIES_TO_CLASSES
         ), new Set(
             self::GROUP_NAME,
             'Livewire 3.0',
-            LivewireSetList::LIVEWIRE_30,
+            LivewireSetList::LIVEWIRE_30
         )], $this->getLaravelVersions());
     }
 
@@ -105,7 +101,7 @@ final class LaravelSetProvider implements SetProviderInterface
             $versions[] = new Set(
                 self::GROUP_NAME,
                 'Laravel Framework ' . ($index + 6) . '.0',
-                $version,
+                $version
             );
         }
 
@@ -113,7 +109,7 @@ final class LaravelSetProvider implements SetProviderInterface
             $versions[] = new Set(
                 self::GROUP_NAME,
                 'Laravel Framework 5.' . $index,
-                $version,
+                $version
             );
         }
 

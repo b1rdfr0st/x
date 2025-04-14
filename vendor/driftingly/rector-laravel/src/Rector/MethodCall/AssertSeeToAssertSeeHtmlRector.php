@@ -19,12 +19,13 @@ final class AssertSeeToAssertSeeHtmlRector extends AbstractRector
 {
     /**
      * @readonly
+     * @var \Rector\PhpParser\Node\Value\ValueResolver
      */
-    private ValueResolver $valueResolver;
+    private $valueResolver;
     /**
      * @var string[]
      */
-    protected array $methodsToReplace = [
+    protected $methodsToReplace = [
         'assertSee' => 'assertSeeHtml',
         'assertDontSee' => 'assertDontSeeHtml',
         'assertSeeInOrder' => 'assertSeeHtmlInOrder',
